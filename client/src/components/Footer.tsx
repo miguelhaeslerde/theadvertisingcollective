@@ -1,0 +1,143 @@
+import { Link } from 'wouter';
+import { Linkedin, Twitter } from 'lucide-react';
+import { SiXing } from 'react-icons/si';
+
+export default function Footer() {
+  const services = [
+    'Strategieberatung',
+    'Digitale Transformation',
+    'Change Management',
+    'Prozessoptimierung',
+    'M&A Beratung',
+    'Training & Coaching',
+  ];
+
+  const company = [
+    { name: 'Über uns', href: '/about' },
+    { name: 'Unser Team', href: '/about#team' },
+    { name: 'Karriere', href: '/career' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'News', href: '/news' },
+    { name: 'Kontakt', href: '/contact' },
+  ];
+
+  return (
+    <footer className="bg-gray-900 text-white py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Company Info */}
+          <div>
+            <div className="font-bowlby text-2xl mb-4">TAC</div>
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              The Advertising Collective - Ihr Partner für strategische Unternehmensberatung 
+              und nachhaltige Geschäftsentwicklung.
+            </p>
+            <div className="flex space-x-4">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-accent-yellow transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://xing.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-accent-yellow transition-colors"
+              >
+                <SiXing className="h-5 w-5" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-accent-yellow transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-bowlby text-lg mb-4">LEISTUNGEN</h4>
+            <ul className="space-y-3 text-gray-300">
+              {services.map((service) => (
+                <li key={service}>
+                  <Link
+                    href="/services"
+                    className="hover:text-accent-yellow transition-colors"
+                  >
+                    {service}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-bowlby text-lg mb-4">UNTERNEHMEN</h4>
+            <ul className="space-y-3 text-gray-300">
+              {company.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="hover:text-accent-yellow transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-bowlby text-lg mb-4">KONTAKT</h4>
+            <div className="space-y-3 text-gray-300">
+              <p>
+                Maximilianstraße 12<br />
+                80539 München<br />
+                Deutschland
+              </p>
+              <p>+49 89 123 456 78</p>
+              <p>kontakt@tac-consulting.de</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="border-t border-gray-700 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="text-gray-400 mb-4 md:mb-0">
+              © 2024 The Advertising Collective. Alle Rechte vorbehalten.
+            </div>
+            <div className="flex space-x-6 text-gray-400">
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'impressum' }))}
+                className="hover:text-accent-yellow transition-colors"
+              >
+                Impressum
+              </button>
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'datenschutz' }))}
+                className="hover:text-accent-yellow transition-colors"
+              >
+                Datenschutz
+              </button>
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'agb' }))}
+                className="hover:text-accent-yellow transition-colors"
+              >
+                AGB
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

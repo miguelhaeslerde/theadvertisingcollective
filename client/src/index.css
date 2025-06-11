@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  --background: hsl(60, 2%, 95%);
+  --foreground: hsl(210, 15%, 15%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(52, 96%, 63%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Custom TAC colors */
+  --main-bg: hsl(60, 2%, 95%);
+  --brightest: hsl(0, 0%, 100%);
+  --main-dark: hsl(0, 0%, 12%);
+  --accent-yellow: hsl(52, 96%, 63%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 12%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 17%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(0, 0%, 12%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 12%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 17%);
+  --input: hsl(0, 0%, 17%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(0, 0%, 17%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(52, 96%, 63%);
+  --accent-foreground: hsl(0, 0%, 12%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  
+  /* Custom TAC dark colors */
+  --main-bg: hsl(0, 0%, 12%);
+  --brightest: hsl(0, 0%, 17%);
+  --main-dark: hsl(0, 0%, 12%);
+  --accent-yellow: hsl(52, 96%, 63%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Instrument Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-bowlby {
+    font-family: 'Bowlby One SC', cursive;
+  }
+}
+
+@layer utilities {
+  .bg-main-bg {
+    background-color: var(--main-bg);
+  }
+  
+  .bg-brightest {
+    background-color: var(--brightest);
+  }
+  
+  .bg-main-dark {
+    background-color: var(--main-dark);
+  }
+  
+  .bg-accent-yellow {
+    background-color: var(--accent-yellow);
+  }
+  
+  .text-accent-yellow {
+    color: var(--accent-yellow);
+  }
+  
+  .border-accent-yellow {
+    border-color: var(--accent-yellow);
+  }
+  
+  .hover\:bg-accent-yellow:hover {
+    background-color: var(--accent-yellow);
+  }
+  
+  .focus\:ring-accent-yellow:focus {
+    --tw-ring-color: var(--accent-yellow);
+  }
+}
