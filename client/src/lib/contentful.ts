@@ -1,5 +1,5 @@
-const CONTENTFUL_SPACE_ID = import.meta.env.VITE_CONTENTFUL_SPACE_ID || process.env.CONTENTFUL_SPACE_ID || 'le164yvriu1o';
-const CONTENTFUL_ACCESS_TOKEN = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN || process.env.CONTENTFUL_ACCESS_TOKEN || 'qVxcteoMxbh9SDAsHfa3GbfNjWDpaNdXMa-ULiFO-iI';
+const CONTENTFUL_SPACE_ID = import.meta.env.VITE_CONTENTFUL_SPACE_ID || 'le164yvriu1o';
+const CONTENTFUL_ACCESS_TOKEN = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN || 'qVxcteoMxbh9SDAsHfa3GbfNjWDpaNdXMa-ULiFO-iI';
 
 export interface ContentfulAsset {
   sys: {
