@@ -128,10 +128,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+      </div>
+      
+      <div className="relative">
         <TopProviderSection />
         
-        {/* Diagonal Divider - Overlapping both sections */}
+        {/* Diagonal Divider - Between TOP 10 and TOP 3 */}
         <div className="absolute -bottom-4 -left-12 -right-12 bg-accent-yellow transform skew-y-1 py-4 overflow-hidden z-[150] h-16">
           <div className="relative">
             {/* Scrolling TAC Text following diagonal angle */}
