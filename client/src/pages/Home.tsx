@@ -110,7 +110,7 @@ export default function Home() {
         <TopProviderSection />
         
         {/* Diagonal Divider - Overlapping both sections */}
-        <div className="absolute -bottom-2 left-0 right-0 bg-accent-yellow transform skew-y-2 py-3 overflow-hidden z-40 h-12">
+        <div className="absolute -bottom-2 -left-8 -right-8 bg-accent-yellow transform skew-y-2 py-3 overflow-hidden z-[150] h-12">
           <div className="relative">
             {/* Scrolling TAC Text following diagonal angle */}
             <div className="flex animate-scroll-tac">
@@ -129,7 +129,7 @@ export default function Home() {
         <TopThreeSection />
         
         {/* Diagonal Divider - Between TOP 3 and Services (mirrored direction) */}
-        <div className="absolute -bottom-2 left-0 right-0 bg-accent-yellow transform -skew-y-2 py-3 overflow-hidden z-40 h-12">
+        <div className="absolute -bottom-2 -left-8 -right-8 bg-accent-yellow transform -skew-y-2 py-3 overflow-hidden z-[150] h-12">
           <div className="relative">
             {/* Scrolling TAC Text following diagonal angle */}
             <div className="flex animate-scroll-tac">
