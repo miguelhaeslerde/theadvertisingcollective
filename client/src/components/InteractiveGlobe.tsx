@@ -25,10 +25,10 @@ export default function InteractiveGlobe() {
       dark: 1,
       diffuse: 3,
       mapSamples: 16000,
-      mapBrightness: 1.2,
-      baseColor: [1, 1, 1],
-      markerColor: [251/255, 100/255, 21/255],
-      glowColor: [1, 1, 1],
+      mapBrightness: 1.8,
+      baseColor: [0.1, 0.2, 0.4],
+      markerColor: [255/255, 236/255, 65/255],
+      glowColor: [255/255, 236/255, 65/255],
       markers: [
         // Major global cities representing TOP 10 market reach
         { location: [40.7128, -74.006], size: 0.1 }, // New York
@@ -64,8 +64,8 @@ export default function InteractiveGlobe() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center py-8">
-      <div className="relative w-64 h-64 md:w-80 md:h-80">
+    <div className="flex justify-start items-center py-8 pl-8 md:pl-16">
+      <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
         <canvas
           ref={canvasRef}
           style={{
@@ -75,6 +75,7 @@ export default function InteractiveGlobe() {
             contain: "layout style size",
             opacity: 0,
             transition: "opacity 1s ease",
+            filter: "drop-shadow(0 0 40px rgba(255, 236, 65, 0.3))",
           }}
           onPointerDown={(e) => {
             if (canvasRef.current) {
@@ -89,17 +90,20 @@ export default function InteractiveGlobe() {
         />
         
         {/* Floating indicators around the globe */}
-        <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center animate-bounce-slow shadow-lg">
-          <span className="text-white font-bold text-xs">✓</span>
+        <div className="absolute -top-6 -right-6 w-10 h-10 bg-green-400 rounded-full flex items-center justify-center animate-bounce-slow shadow-xl">
+          <span className="text-white font-bold text-sm">✓</span>
         </div>
-        <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center animate-float shadow-lg">
-          <span className="text-white font-bold text-xs">$</span>
+        <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center animate-float shadow-xl">
+          <span className="text-white font-bold text-sm">$</span>
         </div>
-        <div className="absolute top-8 -right-8 w-7 h-7 bg-purple-400 rounded-full flex items-center justify-center animate-float-delayed shadow-lg">
-          <span className="text-white font-bold text-xs">★</span>
+        <div className="absolute top-12 -right-12 w-9 h-9 bg-purple-400 rounded-full flex items-center justify-center animate-float-delayed shadow-xl">
+          <span className="text-white font-bold text-sm">★</span>
         </div>
-        <div className="absolute -top-6 left-8 w-6 h-6 bg-cyan-400 rounded-full flex items-center justify-center animate-pulse shadow-lg">
-          <span className="text-white font-bold text-xs">📊</span>
+        <div className="absolute -top-8 left-12 w-8 h-8 bg-cyan-400 rounded-full flex items-center justify-center animate-pulse shadow-xl">
+          <span className="text-white font-bold text-sm">📊</span>
+        </div>
+        <div className="absolute bottom-16 -right-8 w-7 h-7 bg-accent-yellow rounded-full flex items-center justify-center animate-float shadow-xl">
+          <span className="text-gray-900 font-bold text-xs">🌐</span>
         </div>
       </div>
     </div>
