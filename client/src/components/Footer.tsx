@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <img src="/attached_assets/iconlight_1750062405088.png" alt="TAC Logo" className="h-8 w-auto" />
+              <img src="/tac-logo-light.png" alt="TAC Logo" className="h-8 w-auto" />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               The Advertising Collective - Ihr Partner für strategische Unternehmensberatung 
