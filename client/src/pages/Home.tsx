@@ -9,7 +9,7 @@ import InteractiveGlobe from '@/components/InteractiveGlobe';
 // Top Provider Section Component
 function TopProviderSection() {
   return (
-    <section className="py-20 bg-brightest dark:bg-gray-900 overflow-hidden">
+    <section className="py-20 pb-32 bg-brightest dark:bg-gray-900 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative">
           {/* Text Content */}
@@ -45,7 +45,7 @@ function TopProviderSection() {
 // Top Three Section Component
 function TopThreeSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section className="pt-32 py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-8">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,_rgba(255,236,65,0.2)_0%,_transparent_50%)] animate-pulse-slow"></div>
@@ -109,12 +109,32 @@ export default function Home() {
       <TopProviderSection />
       
       {/* Diagonal Divider - Mirrored Direction */}
-      <div className="bg-accent-yellow transform skew-y-2 py-8 relative overflow-hidden">
+      <div className="bg-accent-yellow transform skew-y-2 py-12 relative overflow-hidden z-30">
         <div className="transform -skew-y-2">
-          {/* Optional subtle pattern or content */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-center">
-              <div className="w-24 h-1 bg-gray-900 opacity-20 rounded-full"></div>
+          {/* Scrolling TAC Text */}
+          <div className="relative">
+            <div className="flex animate-scroll-tac">
+              {/* First set of TAC text */}
+              <div className="flex space-x-24 min-w-full justify-around items-center">
+                {[...Array(8)].map((_, index) => (
+                  <div key={`tac-first-${index}`} className="flex-shrink-0">
+                    <span className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-gray-900 font-black tracking-wider">
+                      TAC
+                    </span>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Duplicate set for seamless loop */}
+              <div className="flex space-x-24 min-w-full justify-around items-center">
+                {[...Array(8)].map((_, index) => (
+                  <div key={`tac-second-${index}`} className="flex-shrink-0">
+                    <span className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-gray-900 font-black tracking-wider">
+                      TAC
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

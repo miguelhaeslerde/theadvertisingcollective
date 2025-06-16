@@ -113,7 +113,20 @@
     animation: scroll 30s linear infinite;
   }
 
+  .animate-scroll-tac {
+    animation: scrollTac 25s linear infinite;
+  }
+
   @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scrollTac {
     0% {
       transform: translateX(0);
     }
