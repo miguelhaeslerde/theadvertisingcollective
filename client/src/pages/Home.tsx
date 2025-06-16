@@ -9,7 +9,7 @@ import InteractiveGlobe from '@/components/InteractiveGlobe';
 // Top Provider Section Component
 function TopProviderSection() {
   return (
-    <section className="py-20 pb-32 bg-brightest dark:bg-gray-900 overflow-hidden relative">
+    <section className="py-20 pb-12 bg-brightest dark:bg-gray-900 overflow-hidden relative" style={{marginBottom: '-2rem'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative">
           {/* Text Content */}
@@ -45,7 +45,7 @@ function TopProviderSection() {
 // Top Three Section Component
 function TopThreeSection() {
   return (
-    <section className="pt-32 py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section className="pt-8 py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden" style={{marginTop: '-4rem'}}>
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-8">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,_rgba(255,236,65,0.2)_0%,_transparent_50%)] animate-pulse-slow"></div>
@@ -106,33 +106,29 @@ export default function Home() {
     <Layout>
       <Hero />
       <CustomerLogos />
-      <TopProviderSection />
-      
-      {/* Diagonal Divider - Mirrored Direction */}
-      <div className="bg-accent-yellow transform skew-y-2 py-12 relative overflow-hidden z-30">
-        <div className="transform -skew-y-2">
-          {/* Scrolling TAC Text */}
+      <div className="relative">
+        <TopProviderSection />
+        
+        {/* Diagonal Divider - Overlapping both sections */}
+        <div className="absolute bottom-0 left-0 right-0 bg-accent-yellow transform skew-y-2 py-3 overflow-hidden z-40 h-16">
           <div className="relative">
-            <div className="flex animate-scroll-tac">
-              {/* First set of TAC text */}
-              <div className="flex space-x-24 min-w-full justify-around items-center">
-                {[...Array(8)].map((_, index) => (
-                  <div key={`tac-first-${index}`} className="flex-shrink-0">
-                    <span className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-gray-900 font-black tracking-wider">
-                      TAC
-                    </span>
-                  </div>
+            {/* Scrolling TAC Text following diagonal angle */}
+            <div className="flex animate-scroll-tac whitespace-nowrap">
+              {/* Continuous TAC text */}
+              <div className="flex space-x-4 min-w-full items-center">
+                {[...Array(20)].map((_, index) => (
+                  <span key={`tac-first-${index}`} className="font-bowlby text-xl md:text-2xl lg:text-3xl text-gray-900 font-black tracking-wide flex-shrink-0">
+                    TAC
+                  </span>
                 ))}
               </div>
               
-              {/* Duplicate set for seamless loop */}
-              <div className="flex space-x-24 min-w-full justify-around items-center">
-                {[...Array(8)].map((_, index) => (
-                  <div key={`tac-second-${index}`} className="flex-shrink-0">
-                    <span className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-gray-900 font-black tracking-wider">
-                      TAC
-                    </span>
-                  </div>
+              {/* Duplicate for seamless loop */}
+              <div className="flex space-x-4 min-w-full items-center">
+                {[...Array(20)].map((_, index) => (
+                  <span key={`tac-second-${index}`} className="font-bowlby text-xl md:text-2xl lg:text-3xl text-gray-900 font-black tracking-wide flex-shrink-0">
+                    TAC
+                  </span>
                 ))}
               </div>
             </div>
