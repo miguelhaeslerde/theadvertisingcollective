@@ -1,124 +1,180 @@
 import { useEffect, useRef } from 'react';
 
 export default function InteractiveGlobe() {
-  const globeRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const rotationRef = useRef(0);
 
   useEffect(() => {
-    // Add subtle rotation and animation effects
-    const globe = globeRef.current;
-    if (!globe) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    let rotation = 0;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const width = 300;
+    const height = 300;
+    canvas.width = width;
+    canvas.height = height;
+
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const radius = 120;
+
+    // Generate dots in a sphere pattern
+    const dots: Array<{ x: number; y: number; z: number; visible: boolean; alpha: number }> = [];
+    const dotCount = 1200;
+
+    for (let i = 0; i < dotCount; i++) {
+      const theta = Math.acos(2 * Math.random() - 1);
+      const phi = 2 * Math.PI * Math.random();
+      
+      const x = Math.sin(theta) * Math.cos(phi);
+      const y = Math.sin(theta) * Math.sin(phi);
+      const z = Math.cos(theta);
+
+      dots.push({ x, y, z, visible: true, alpha: 0.6 });
+    }
+
+    // Connection lines data
+    const connections: Array<{ start: number; end: number; progress: number }> = [];
+    for (let i = 0; i < 8; i++) {
+      connections.push({
+        start: Math.floor(Math.random() * dotCount),
+        end: Math.floor(Math.random() * dotCount),
+        progress: Math.random()
+      });
+    }
+
+    let animationId: number;
+
     const animate = () => {
-      rotation += 0.5;
-      globe.style.transform = `rotateY(${rotation}deg) rotateX(-15deg)`;
-      requestAnimationFrame(animate);
+      rotationRef.current += 0.01;
+      
+      ctx.fillStyle = 'transparent';
+      ctx.clearRect(0, 0, width, height);
+
+      // Create gradient background for globe
+      const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius + 20);
+      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.1)');
+      gradient.addColorStop(0.7, 'rgba(37, 99, 235, 0.3)');
+      gradient.addColorStop(1, 'rgba(29, 78, 216, 0.5)');
+      
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius + 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      // Draw dots
+      dots.forEach((dot, index) => {
+        const rotatedX = dot.x * Math.cos(rotationRef.current) - dot.z * Math.sin(rotationRef.current);
+        const rotatedZ = dot.x * Math.sin(rotationRef.current) + dot.z * Math.cos(rotationRef.current);
+        
+        // Only show dots on the front hemisphere
+        if (rotatedZ > -0.3) {
+          const projectedX = centerX + rotatedX * radius;
+          const projectedY = centerY + dot.y * radius;
+          
+          // Calculate distance from center for depth effect
+          const distance = Math.sqrt((rotatedX) ** 2 + (dot.y) ** 2 + (rotatedZ + 0.3) ** 2);
+          const alpha = Math.max(0.1, Math.min(1, (2 - distance) / 2));
+          
+          // Highlight some dots as active points
+          const isActive = index % 47 === 0; // Every 47th dot is active
+          const dotSize = isActive ? 3 : 1.5;
+          const color = isActive ? '#FFEC41' : '#60A5FA';
+          
+          ctx.fillStyle = `rgba(${isActive ? '255, 236, 65' : '96, 165, 250'}, ${alpha})`;
+          ctx.beginPath();
+          ctx.arc(projectedX, projectedY, dotSize, 0, 2 * Math.PI);
+          ctx.fill();
+
+          // Add glow for active dots
+          if (isActive) {
+            ctx.shadowColor = '#FFEC41';
+            ctx.shadowBlur = 10;
+            ctx.beginPath();
+            ctx.arc(projectedX, projectedY, dotSize + 1, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+          }
+        }
+      });
+
+      // Draw connection arcs
+      connections.forEach((conn, i) => {
+        const startDot = dots[conn.start];
+        const endDot = dots[conn.end];
+
+        const startRotatedX = startDot.x * Math.cos(rotationRef.current) - startDot.z * Math.sin(rotationRef.current);
+        const startRotatedZ = startDot.x * Math.sin(rotationRef.current) + startDot.z * Math.cos(rotationRef.current);
+        
+        const endRotatedX = endDot.x * Math.cos(rotationRef.current) - endDot.z * Math.sin(rotationRef.current);
+        const endRotatedZ = endDot.x * Math.sin(rotationRef.current) + endDot.z * Math.cos(rotationRef.current);
+
+        if (startRotatedZ > -0.3 && endRotatedZ > -0.3) {
+          const startX = centerX + startRotatedX * radius;
+          const startY = centerY + startDot.y * radius;
+          const endX = centerX + endRotatedX * radius;
+          const endY = centerY + endDot.y * radius;
+
+          // Animate connection progress
+          conn.progress += 0.02;
+          if (conn.progress > 1) conn.progress = 0;
+
+          const currentX = startX + (endX - startX) * conn.progress;
+          const currentY = startY + (endY - startY) * conn.progress;
+
+          // Draw connection line
+          ctx.strokeStyle = `rgba(255, 236, 65, ${0.3 + 0.3 * Math.sin(conn.progress * Math.PI)})`;
+          ctx.lineWidth = 1;
+          ctx.setLineDash([5, 5]);
+          ctx.beginPath();
+          ctx.moveTo(startX, startY);
+          ctx.lineTo(currentX, currentY);
+          ctx.stroke();
+          ctx.setLineDash([]);
+
+          // Draw moving dot
+          ctx.fillStyle = '#FFEC41';
+          ctx.beginPath();
+          ctx.arc(currentX, currentY, 2, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+      });
+
+      animationId = requestAnimationFrame(animate);
     };
+
     animate();
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current.x = e.clientX - rect.left;
+      mouseRef.current.y = e.clientY - rect.top;
+    };
+
+    canvas.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return (
     <div className="flex justify-center items-center py-8">
-      <div className="relative w-48 h-48 perspective-[1000px]">
-        {/* Globe Container */}
-        <div
-          ref={globeRef}
-          className="relative w-full h-full rounded-full bg-gradient-to-br from-blue-500 via-green-500 to-blue-700 shadow-2xl"
+      <div className="relative">
+        <canvas
+          ref={canvasRef}
+          className="rounded-full"
           style={{
-            background: `
-              radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-              linear-gradient(135deg, #1e40af 0%, #059669 30%, #0369a1 70%, #1e3a8a 100%)
-            `,
-            boxShadow: `
-              0 0 50px rgba(255, 236, 65, 0.3),
-              inset -20px -20px 40px rgba(0, 0, 0, 0.3),
-              inset 20px 20px 40px rgba(255, 255, 255, 0.1)
-            `
+            background: 'radial-gradient(circle, rgba(29, 78, 216, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%)',
+            filter: 'drop-shadow(0 0 30px rgba(255, 236, 65, 0.3))'
           }}
-        >
-          {/* Continents */}
-          <div className="absolute inset-0 rounded-full overflow-hidden">
-            {/* North America */}
-            <div className="absolute top-8 left-12 w-8 h-12 bg-green-700 opacity-80 rounded-bl-full transform rotate-12"></div>
-            
-            {/* Europe */}
-            <div className="absolute top-6 left-20 w-6 h-8 bg-green-700 opacity-80 rounded-full transform rotate-45"></div>
-            
-            {/* Asia */}
-            <div className="absolute top-4 right-8 w-12 h-16 bg-green-700 opacity-80 rounded-tl-full transform -rotate-12"></div>
-            
-            {/* Africa */}
-            <div className="absolute top-16 left-16 w-6 h-10 bg-green-700 opacity-80 rounded-full transform rotate-12"></div>
-            
-            {/* South America */}
-            <div className="absolute bottom-12 left-14 w-4 h-12 bg-green-700 opacity-80 rounded-full transform rotate-24"></div>
-            
-            {/* Australia */}
-            <div className="absolute bottom-8 right-12 w-6 h-4 bg-green-700 opacity-80 rounded-full transform -rotate-12"></div>
-          </div>
-
-          {/* Atmosphere Glow */}
-          <div className="absolute -inset-2 rounded-full bg-accent-yellow opacity-20 blur-md animate-pulse"></div>
-          
-          {/* Connection Lines/Arcs */}
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 192 192">
-            {/* Animated connection arcs */}
-            <path
-              d="M 48 96 Q 96 48 144 96"
-              stroke="#FFEC41"
-              strokeWidth="2"
-              fill="none"
-              opacity="0.6"
-              className="animate-pulse"
-              strokeDasharray="4 4"
-            />
-            <path
-              d="M 96 48 Q 144 96 96 144"
-              stroke="#FFEC41"
-              strokeWidth="2"
-              fill="none"
-              opacity="0.4"
-              className="animate-pulse"
-              strokeDasharray="6 6"
-              style={{ animationDelay: '1s' }}
-            />
-            <path
-              d="M 144 96 Q 96 144 48 96"
-              stroke="#FFEC41"
-              strokeWidth="2"
-              fill="none"
-              opacity="0.5"
-              className="animate-pulse"
-              strokeDasharray="8 8"
-              style={{ animationDelay: '2s' }}
-            />
-          </svg>
-
-          {/* Orbiting Satellites */}
-          <div className="absolute inset-0">
-            <div className="absolute top-4 left-1/2 w-2 h-2 bg-accent-yellow rounded-full animate-orbit-fast shadow-lg"></div>
-            <div className="absolute top-1/2 right-4 w-2 h-2 bg-accent-yellow rounded-full animate-orbit-medium shadow-lg"></div>
-            <div className="absolute bottom-8 left-8 w-2 h-2 bg-accent-yellow rounded-full animate-orbit-slow shadow-lg"></div>
-          </div>
-
-          {/* Data Points */}
-          <div className="absolute inset-0">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-1 h-1 bg-accent-yellow rounded-full animate-ping"
-                style={{
-                  top: `${20 + Math.random() * 60}%`,
-                  left: `${20 + Math.random() * 60}%`,
-                  animationDelay: `${i * 0.5}s`,
-                  animationDuration: `${2 + Math.random() * 2}s`
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Floating Success Indicators */}
+        />
+        
+        {/* Floating indicators around the globe */}
         <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center animate-bounce-slow shadow-lg">
           <span className="text-white font-bold text-xs">✓</span>
         </div>
@@ -127,6 +183,9 @@ export default function InteractiveGlobe() {
         </div>
         <div className="absolute top-8 -right-8 w-7 h-7 bg-purple-400 rounded-full flex items-center justify-center animate-float-delayed shadow-lg">
           <span className="text-white font-bold text-xs">★</span>
+        </div>
+        <div className="absolute -top-6 left-8 w-6 h-6 bg-cyan-400 rounded-full flex items-center justify-center animate-pulse shadow-lg">
+          <span className="text-white font-bold text-xs">📊</span>
         </div>
       </div>
     </div>
