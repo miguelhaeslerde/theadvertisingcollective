@@ -10,65 +10,94 @@ export default function About() {
   ];
 
   return (
-    <section className="py-24 bg-main-bg dark:bg-main-dark relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,_rgba(255,236,65,0.1)_0%,_transparent_50%)] animate-pulse-slow"></div>
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,_rgba(255,236,65,0.08)_0%,_transparent_50%)] animate-float"></div>
+      <div className="absolute inset-0 opacity-8">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,_rgba(255,236,65,0.2)_0%,_transparent_50%)] animate-pulse-slow"></div>
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,_rgba(255,236,65,0.15)_0%,_transparent_50%)] animate-float"></div>
+        <div className="absolute bottom-0 left-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_100%,_rgba(255,236,65,0.1)_0%,_transparent_50%)] animate-float-delayed"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-                alt="Professional German business team in modern office environment"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-accent-yellow/20 to-transparent"></div>
-            </div>
-            {/* Floating accent elements */}
-            <div className="absolute -top-6 -right-6 w-12 h-12 bg-accent-yellow/20 rounded-full animate-bounce-slow"></div>
-            <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-accent-yellow/30 rounded-full animate-float"></div>
+      {/* Moving Grid Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24px,rgba(255,255,255,0.1)_25px,rgba(255,255,255,0.1)_26px,transparent_27px,transparent_74px,rgba(255,255,255,0.1)_75px,rgba(255,255,255,0.1)_76px,transparent_77px),linear-gradient(transparent_24px,rgba(255,255,255,0.1)_25px,rgba(255,255,255,0.1)_26px,transparent_27px,transparent_74px,rgba(255,255,255,0.1)_75px,rgba(255,255,255,0.1)_76px,transparent_77px)] bg-[size:100px_100px] animate-grid-move"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
+        {/* Main Heading */}
+        <div className="mb-20">
+          <h2 className="font-bowlby text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-white leading-tight mb-8 relative">
+            ÜBER THE{' '}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-accent-yellow">ADVERTISING</span>
+              <div className="absolute inset-0 text-accent-yellow blur-sm opacity-30 animate-pulse-slow"></div>
+            </span>{' '}
+            COLLECTIVE
+          </h2>
+          <div className="flex justify-center mb-12">
+            <div className="w-32 h-1 bg-accent-yellow rounded-full animate-expand-glow"></div>
           </div>
+        </div>
+
+        {/* Content */}
+        <div className="max-w-5xl mx-auto mb-20">
+          <p className="text-2xl md:text-3xl lg:text-4xl text-white leading-relaxed mb-12 font-light">
+            Wir sind <span className="text-accent-yellow font-bold">die Spezialisten</span> für Unternehmen, 
+            die endlich unter die <span className="text-accent-yellow font-bold">TOP 3</span> ihrer Branche kommen wollen.
+          </p>
           
-          <div>
-            <h2 className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white mb-8 leading-tight">
-              ÜBER THE ADVERTISING COLLECTIVE
-            </h2>
-            <div className="mb-8 flex justify-start">
-              <div className="w-32 h-1 bg-accent-yellow rounded-full animate-expand-glow"></div>
-            </div>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Seit über 15 Jahren begleiten wir Unternehmen auf ihrem Weg zu nachhaltigem Erfolg. 
-              Als unabhängige Unternehmensberatung vereinen wir strategische Kompetenz mit 
-              praktischer Umsetzungserfahrung.
-            </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-              Unser interdisziplinäres Team aus erfahrenen Beratern, Digitalexperten und 
-              Branchenspezialisten entwickelt maßgeschneiderte Lösungen für Ihre individuellen 
-              Herausforderungen.
-            </p>
+          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-16">
+            Mit über 15 Jahren Erfahrung und bewährten Strategien haben wir bereits 
+            über 500 Unternehmen dabei geholfen, ihre Marktposition zu revolutionieren.
+          </p>
+        </div>
 
-            <div className="grid grid-cols-2 gap-8 mb-12">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center p-6 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm border border-accent-yellow/20 hover:border-accent-yellow/50 transition-all group">
-                  <div className="font-bowlby text-4xl text-accent-yellow mb-2 group-hover:scale-110 transition-transform">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-600 dark:text-gray-300 font-medium">
-                    {stat.label}
-                  </div>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          {stats.map((stat, index) => (
+            <div key={index} className="relative group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-accent-yellow/30 hover:border-accent-yellow transition-all duration-300 hover:-translate-y-2">
+                <div className="font-bowlby text-5xl md:text-6xl text-accent-yellow mb-4 group-hover:scale-110 transition-transform">
+                  {stat.value}
                 </div>
-              ))}
+                <div className="text-white font-medium text-lg">
+                  {stat.label}
+                </div>
+                {/* Floating accent */}
+                <div className="absolute -top-3 -right-3 w-6 h-6 bg-accent-yellow rounded-full opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-all"></div>
+              </div>
             </div>
+          ))}
+        </div>
 
-            <Link href="/about">
-              <Button className="bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 font-bold py-4 px-8">
-                UNSER TEAM KENNENLERNEN
-              </Button>
-            </Link>
+        {/* CTA Section */}
+        <div className="relative">
+          <div className="bg-accent-yellow/10 backdrop-blur-sm rounded-3xl p-12 border border-accent-yellow/30">
+            <h3 className="font-bowlby text-3xl md:text-4xl lg:text-5xl text-white mb-8">
+              BEREIT FÜR DEN SPRUNG IN DIE TOP 3?
+            </h3>
+            <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+              Lassen Sie uns in einem kostenlosen Strategiegespräch analysieren, 
+              wie Sie endlich die Marktführerschaft in Ihrer Branche erreichen.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Link href="/contact">
+                <Button className="bg-accent-yellow hover:bg-accent-yellow/90 text-gray-900 font-bold px-12 py-4 text-lg rounded-full transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-accent-yellow/30">
+                  KOSTENLOSES STRATEGIEGESPRÄCH
+                </Button>
+              </Link>
+              
+              <Link href="/agency-maxxing">
+                <Button variant="outline" className="border-2 border-accent-yellow text-accent-yellow hover:bg-accent-yellow hover:text-gray-900 font-bold px-8 py-4 text-lg rounded-full transform hover:scale-105 transition-all duration-300">
+                  AGENCY MAXXING ENTDECKEN
+                </Button>
+              </Link>
+            </div>
+            
+            {/* Floating elements for visual impact */}
+            <div className="absolute -top-8 -left-8 w-16 h-16 bg-accent-yellow/20 rounded-full animate-bounce-slow"></div>
+            <div className="absolute -bottom-8 -right-8 w-12 h-12 bg-accent-yellow/30 rounded-full animate-float"></div>
           </div>
         </div>
       </div>
