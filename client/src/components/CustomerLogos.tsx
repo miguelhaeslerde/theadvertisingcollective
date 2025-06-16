@@ -20,8 +20,8 @@ export default function CustomerLogos() {
         </h3>
       </div>
       
-      {/* Diagonal Banner with Logos - Positioned absolutely at bottom */}
-      <div className="absolute -bottom-2 -left-8 -right-8 bg-accent-yellow transform -skew-y-2 py-8 overflow-hidden z-[200] h-20">
+      {/* Diagonal Banner with Logos - Positioned to overlap next section */}
+      <div className="absolute -bottom-8 -left-8 -right-8 bg-accent-yellow transform -skew-y-2 py-8 overflow-hidden z-[999] h-20">
         <div className="transform skew-y-2">
           {/* Animated Logo Marquee */}
           <div className="relative">
