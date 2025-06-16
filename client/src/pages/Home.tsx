@@ -45,7 +45,7 @@ function TopProviderSection() {
 // Top Three Section Component
 function TopThreeSection() {
   return (
-    <section className="pt-20 py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden" style={{marginTop: '-1rem'}}>
+    <section className="pt-20 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden" style={{marginTop: '-1rem'}}>
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-8">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,_rgba(255,236,65,0.2)_0%,_transparent_50%)] animate-pulse-slow"></div>
@@ -125,7 +125,25 @@ export default function Home() {
         </div>
       </div>
       
-      <TopThreeSection />
+      <div className="relative">
+        <TopThreeSection />
+        
+        {/* Diagonal Divider - Between TOP 3 and Services (mirrored direction) */}
+        <div className="absolute -bottom-2 left-0 right-0 bg-accent-yellow transform -skew-y-2 py-3 overflow-hidden z-40 h-12">
+          <div className="relative">
+            {/* Scrolling TAC Text following diagonal angle */}
+            <div className="flex animate-scroll-tac">
+              {/* Single continuous line of TAC text */}
+              {[...Array(30)].map((_, index) => (
+                <span key={`tac-services-${index}`} className="font-bowlby text-lg md:text-xl lg:text-2xl text-gray-900 font-black tracking-wide flex-shrink-0 mr-6">
+                  TAC
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <Services />
       <About />
       <Contact />

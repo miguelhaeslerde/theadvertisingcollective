@@ -37,7 +37,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-20 bg-brightest dark:bg-gray-800">
+    <section className="pt-20 py-20 bg-brightest dark:bg-gray-800 relative" style={{marginTop: '-1rem'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-bowlby text-3xl md:text-4xl text-gray-900 dark:text-white mb-4">
