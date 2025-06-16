@@ -107,14 +107,16 @@ export default function LatestBlogPosts() {
                 key={post.sys.id}
                 className="bg-white dark:bg-gray-900 hover:shadow-2xl hover:shadow-accent-yellow/10 transition-all duration-300 hover:-translate-y-2 group overflow-hidden"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={coverImageUrl}
-                    alt={post.fields.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                </div>
+                <Link href={`/blog/${post.fields.slug}`}>
+                  <div className="relative h-48 overflow-hidden cursor-pointer">
+                    <img
+                      src={coverImageUrl}
+                      alt={post.fields.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  </div>
+                </Link>
                 
                 <CardContent className="p-6">
                 <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
@@ -124,9 +126,11 @@ export default function LatestBlogPosts() {
                   <span>{estimateReadingTime(post.fields.body)} Min. Lesezeit</span>
                 </div>
                 
-                <h3 className="font-bowlby text-xl text-gray-900 dark:text-white mb-3 group-hover:text-accent-yellow transition-colors line-clamp-2">
-                  {post.fields.title}
-                </h3>
+                <Link href={`/blog/${post.fields.slug}`}>
+                  <h3 className="font-bowlby text-xl text-gray-900 dark:text-white mb-3 group-hover:text-accent-yellow transition-colors line-clamp-2 cursor-pointer">
+                    {post.fields.title}
+                  </h3>
+                </Link>
                 
                 <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
                   {contentfulClient.formatRichTextSimple(post.fields.body).substring(0, 150)}...
