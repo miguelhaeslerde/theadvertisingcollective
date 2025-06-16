@@ -91,23 +91,32 @@ export default function LatestBlogPosts() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
-          {blogData.items.map((post: any) => (
-            <Card
-              key={post.sys.id}
-              className="bg-white dark:bg-gray-900 hover:shadow-2xl hover:shadow-accent-yellow/10 transition-all duration-300 hover:-translate-y-2 group overflow-hidden"
-            >
-              {post.fields.coverImage && (
+          {blogData.items.map((post: any) => {
+            // Find the actual asset from the includes section
+            let coverImageUrl = 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&w=600&h=300&fit=crop';
+            
+            if (post.fields.coverImage && blogData.includes?.Asset) {
+              const asset = blogData.includes.Asset.find((a: any) => a.sys.id === post.fields.coverImage?.sys.id);
+              if (asset) {
+                coverImageUrl = contentfulClient.getAssetUrl(asset);
+              }
+            }
+
+            return (
+              <Card
+                key={post.sys.id}
+                className="bg-white dark:bg-gray-900 hover:shadow-2xl hover:shadow-accent-yellow/10 transition-all duration-300 hover:-translate-y-2 group overflow-hidden"
+              >
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={contentfulClient.getAssetUrl(post.fields.coverImage)}
+                    src={coverImageUrl}
                     alt={post.fields.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>
-              )}
-              
-              <CardContent className="p-6">
+                
+                <CardContent className="p-6">
                 <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
                   <Calendar className="h-4 w-4 mr-2" />
                   <span>{formatDate(post.fields.publishedDate)}</span>
@@ -129,9 +138,10 @@ export default function LatestBlogPosts() {
                 >
                   Weiterlesen <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         <div className="text-center">
