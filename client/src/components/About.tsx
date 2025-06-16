@@ -25,8 +25,8 @@ export default function About() {
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
         {/* Main Heading */}
-        <div className="mb-12 sm:mb-20 px-4 sm:px-0">
-          <h2 className="font-bowlby text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl text-white leading-tight mb-6 sm:mb-8 relative">
+        <div className="mb-20">
+          <h2 className="font-bowlby text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-white leading-tight mb-8 relative">
             ÜBER THE{' '}
             <span className="relative inline-block">
               <span className="relative z-10 text-accent-yellow">ADVERTISING</span>
@@ -34,19 +34,19 @@ export default function About() {
             </span>{' '}
             COLLECTIVE
           </h2>
-          <div className="flex justify-center mb-8 sm:mb-12">
-            <div className="w-24 sm:w-32 h-1 bg-accent-yellow rounded-full animate-expand-glow"></div>
+          <div className="flex justify-center mb-12">
+            <div className="w-32 h-1 bg-accent-yellow rounded-full animate-expand-glow"></div>
           </div>
         </div>
 
         {/* Content */}
-        <div className="max-w-5xl mx-auto mb-12 sm:mb-20 px-4 sm:px-0">
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white leading-relaxed mb-8 sm:mb-12 font-light">
+        <div className="max-w-5xl mx-auto mb-20">
+          <p className="text-2xl md:text-3xl lg:text-4xl text-white leading-relaxed mb-12 font-light">
             Wir sind <span className="text-accent-yellow font-bold">die Spezialisten</span> für Unternehmen, 
             die endlich unter die <span className="text-accent-yellow font-bold">TOP 3</span> ihrer Branche kommen wollen.
           </p>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed mb-12 sm:mb-16">
+          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-16">
             Mit über 15 Jahren Erfahrung und bewährten Strategien haben wir bereits 
             über 500 Unternehmen dabei geholfen, ihre Marktposition zu revolutionieren.
           </p>

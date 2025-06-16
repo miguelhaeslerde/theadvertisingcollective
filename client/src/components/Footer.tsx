@@ -14,26 +14,26 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-12 sm:py-16">
+    <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
-          <div className="lg:col-span-2">
+          <div>
             <div className="flex items-center mb-4">
-              <img src="/tac-logo-light.png" alt="TAC Logo" className="h-6 sm:h-8 w-auto" />
+              <img src="/tac-logo-light.png" alt="TAC Logo" className="h-8 w-auto" />
             </div>
-            <p className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-300 mb-6 leading-relaxed">
               The Advertising Collective - Ihr Partner für strategische Unternehmensberatung 
               und nachhaltige Geschäftsentwicklung.
             </p>
-            <div className="flex space-x-3 sm:space-x-4">
+            <div className="flex space-x-4">
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-accent-yellow transition-colors"
               >
-                <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
+                <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href="https://xing.com"
@@ -41,7 +41,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-accent-yellow transition-colors"
               >
-                <SiXing className="h-4 w-4 sm:h-5 sm:w-5" />
+                <SiXing className="h-5 w-5" />
               </a>
               <a
                 href="https://twitter.com"
@@ -49,20 +49,20 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-accent-yellow transition-colors"
               >
-                <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
+                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-bowlby text-base sm:text-lg mb-3 sm:mb-4">NAVIGATION</h4>
-            <ul className="space-y-2 sm:space-y-3 text-gray-300">
+            <h4 className="font-bowlby text-lg mb-4">NAVIGATION</h4>
+            <ul className="space-y-3 text-gray-300">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="hover:text-accent-yellow transition-colors text-sm sm:text-base"
+                    className="hover:text-accent-yellow transition-colors"
                   >
                     {item.name}
                   </Link>
