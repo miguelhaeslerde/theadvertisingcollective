@@ -7,31 +7,43 @@ const services = [
     icon: TrendingUp,
     title: 'STRATEGIEBERATUNG',
     description: 'Entwicklung zukunftsfähiger Unternehmensstrategien und nachhaltiger Wachstumskonzepte für Ihren Markterfolg.',
+    details: 'Unsere erfahrenen Strategieberater analysieren Ihre aktuelle Marktposition, identifizieren Wachstumschancen und entwickeln maßgeschneiderte Strategien. Wir unterstützen Sie bei der Definition von Unternehmenszielen, der Marktanalyse und der Erstellung von Business-Plänen, die nachhaltigen Erfolg garantieren.',
+    benefits: ['Marktpositionierung optimieren', 'Wachstumschancen identifizieren', 'Langfristige Ziele definieren', 'Wettbewerbsvorteile schaffen']
   },
   {
     icon: Cpu,
     title: 'DIGITALE TRANSFORMATION',
     description: 'Begleitung Ihres Unternehmens auf dem Weg in die digitale Zukunft mit innovativen Technologien und Prozessen.',
+    details: 'Von der Digitalisierung bestehender Prozesse bis hin zur Implementierung neuer Technologien - wir begleiten Sie durch alle Phasen der digitalen Transformation. Unsere Experten entwickeln digitale Roadmaps, die zu Ihrem Unternehmen passen und messbaren ROI liefern.',
+    benefits: ['Prozesse digitalisieren', 'Technologie-Stack modernisieren', 'Mitarbeiter schulen', 'ROI maximieren']
   },
   {
     icon: Users,
     title: 'CHANGE MANAGEMENT',
     description: 'Professionelle Begleitung von Veränderungsprozessen zur erfolgreichen Umsetzung strategischer Initiativen.',
+    details: 'Veränderungen erfolgreich zu implementieren erfordert mehr als nur neue Prozesse. Wir helfen Ihnen dabei, Ihre Mitarbeiter abzuholen, Widerstände zu überwinden und eine Kultur des Wandels zu schaffen. Unser strukturierter Ansatz gewährleistet nachhaltige Transformation.',
+    benefits: ['Mitarbeiter motivieren', 'Widerstände überwinden', 'Kommunikation optimieren', 'Transformation nachhaltig gestalten']
   },
   {
     icon: Settings,
     title: 'PROZESSOPTIMIERUNG',
     description: 'Analyse und Optimierung Ihrer Geschäftsprozesse für mehr Effizienz und Kostenreduktion.',
+    details: 'Ineffiziente Prozesse kosten Zeit und Geld. Unsere Prozessexperten analysieren Ihre bestehenden Abläufe, identifizieren Optimierungspotenziale und implementieren schlanke, effiziente Lösungen. Das Ergebnis: Kosteneinsparungen und verbesserte Produktivität.',
+    benefits: ['Kosten reduzieren', 'Effizienz steigern', 'Qualität verbessern', 'Durchlaufzeiten verkürzen']
   },
   {
     icon: Handshake,
     title: 'M&A BERATUNG',
     description: 'Expertenunterstützung bei Fusionen, Übernahmen und strategischen Partnerschaften.',
+    details: 'Komplexe M&A-Transaktionen erfordern umfassende Expertise und sorgfältige Planung. Wir begleiten Sie von der strategischen Planung über die Due Diligence bis hin zur erfolgreichen Integration. Unser Netzwerk und unsere Erfahrung sichern den Erfolg Ihrer Transaktion.',
+    benefits: ['Zielunternehmen bewerten', 'Due Diligence durchführen', 'Verhandlungen führen', 'Integration planen']
   },
   {
     icon: GraduationCap,
     title: 'TRAINING & COACHING',
     description: 'Individuelle Weiterbildungsprogramme und Executive Coaching für Führungskräfte.',
+    details: 'Investieren Sie in die Entwicklung Ihrer wertvollsten Ressource - Ihre Mitarbeiter. Unsere maßgeschneiderten Trainings und Coaching-Programme entwickeln Führungskompetenzen, stärken Teams und fördern eine Kultur der kontinuierlichen Verbesserung.',
+    benefits: ['Führungskompetenzen entwickeln', 'Teams stärken', 'Performance steigern', 'Mitarbeiterzufriedenheit erhöhen']
   },
 ];
 
@@ -63,33 +75,53 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="max-w-4xl mx-auto space-y-12">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <Card
                 key={index}
-                className="bg-white dark:bg-gray-900 hover:shadow-2xl hover:shadow-accent-yellow/10 transition-all duration-300 hover:-translate-y-2 border-l-4 border-accent-yellow group"
+                className="bg-white dark:bg-gray-900 hover:shadow-2xl hover:shadow-accent-yellow/10 transition-all duration-300 border-l-4 border-accent-yellow group"
               >
-                <CardContent className="p-8">
-                  <div className="relative mb-6">
-                    <div className="text-accent-yellow text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="h-12 w-12" />
+                <CardContent className="p-8 md:p-12">
+                  <div className="flex flex-col md:flex-row gap-8">
+                    {/* Icon Section */}
+                    <div className="flex-shrink-0">
+                      <div className="relative">
+                        <div className="text-accent-yellow text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                          <IconComponent className="h-16 w-16" />
+                        </div>
+                        <div className="absolute -top-2 -right-2 w-12 h-12 bg-accent-yellow/10 rounded-full group-hover:scale-150 transition-all duration-300"></div>
+                      </div>
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent-yellow/10 rounded-full group-hover:scale-150 transition-all duration-300"></div>
+                    
+                    {/* Content Section */}
+                    <div className="flex-1">
+                      <h3 className="font-bowlby text-2xl md:text-3xl text-gray-900 dark:text-white mb-4 group-hover:text-accent-yellow transition-colors">
+                        {service.title}
+                      </h3>
+                      
+                      <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
+                      
+                      <p className="text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
+                        {service.details}
+                      </p>
+                      
+                      {/* Benefits List */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {service.benefits.map((benefit, benefitIndex) => (
+                          <div key={benefitIndex} className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-accent-yellow rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-600 dark:text-gray-300 text-sm">
+                              {benefit}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="font-bowlby text-xl text-gray-900 dark:text-white mb-4 group-hover:text-accent-yellow transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <Link
-                    href="/services"
-                    className="text-accent-yellow font-bold hover:text-gray-900 dark:hover:text-white inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300"
-                  >
-                    Mehr erfahren <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
                 </CardContent>
               </Card>
             );
