@@ -86,9 +86,12 @@ export default function About() {
             </p>
             
             <div className="flex justify-center">
-              <Link href="/contact">
-                <Button className="bg-accent-yellow hover:bg-accent-yellow/90 text-gray-900 font-bold px-12 py-4 text-xl rounded-full transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-accent-yellow/30">
-                  KOSTENLOSES STRATEGIEGESPRÄCH BUCHEN
+              <Link href="/contact" className="w-full max-w-4xl">
+                <Button className="bg-accent-yellow hover:bg-yellow-300 text-gray-900 py-12 px-16 rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 w-full">
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bowlby font-bold mb-3">JETZT KOSTENLOS BEWERBEN</div>
+                    <div className="text-lg md:text-xl font-normal italic" style={{ fontFamily: 'Instrument Sans, sans-serif' }}>UND EIN PITCH DECK ANFORDERN</div>
+                  </div>
                 </Button>
               </Link>
             </div>
