@@ -45,7 +45,7 @@ function TopProviderSection() {
 // Top Three Section Component
 function TopThreeSection() {
   return (
-    <section className="pt-20 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden" style={{marginTop: '-1rem'}}>
+    <section className="pt-20 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800 relative overflow-hidden" style={{marginTop: '-2rem'}}>
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-8">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,_rgba(255,236,65,0.2)_0%,_transparent_50%)] animate-pulse-slow"></div>
@@ -110,7 +110,7 @@ export default function Home() {
         <TopProviderSection />
         
         {/* Diagonal Divider - Overlapping both sections */}
-        <div className="absolute -bottom-2 -left-8 -right-8 bg-accent-yellow transform skew-y-2 py-3 overflow-hidden z-[150] h-12">
+        <div className="absolute -bottom-4 -left-12 -right-12 bg-accent-yellow transform skew-y-6 py-4 overflow-hidden z-[150] h-16">
           <div className="relative">
             {/* Scrolling TAC Text following diagonal angle */}
             <div className="flex animate-scroll-tac">
@@ -129,7 +129,7 @@ export default function Home() {
         <TopThreeSection />
         
         {/* Diagonal Divider - Between TOP 3 and Services (mirrored direction) */}
-        <div className="absolute -bottom-2 -left-8 -right-8 bg-accent-yellow transform -skew-y-2 py-3 overflow-hidden z-[150] h-12">
+        <div className="absolute -bottom-4 -left-12 -right-12 bg-accent-yellow transform -skew-y-6 py-4 overflow-hidden z-[150] h-16">
           <div className="relative">
             {/* Scrolling TAC Text following diagonal angle */}
             <div className="flex animate-scroll-tac">
