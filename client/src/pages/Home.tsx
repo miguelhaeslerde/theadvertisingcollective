@@ -24,10 +24,7 @@ function TopProviderSection() {
             <div className="mt-8 flex justify-start">
               <div className="w-24 h-1 bg-accent-yellow rounded-full animate-expand"></div>
             </div>
-            <p className="mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              Dann ist es Zeit für den nächsten Schritt. Wir helfen erfolgreichen Unternehmen dabei, 
-              ihre Marktposition zu dominieren und nachhaltiges Wachstum zu erzielen.
-            </p>
+
           </div>
           
           {/* Interactive 3D Globe */}
@@ -48,67 +45,57 @@ function TopProviderSection() {
 // Top Three Section Component
 function TopThreeSection() {
   return (
-    <section className="py-20 bg-main-bg dark:bg-main-dark overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center relative">
-          <h2 className="font-bowlby text-4xl md:text-6xl text-gray-900 dark:text-white leading-tight animate-fade-in-up">
-            Du versuchst{' '}
-            <span className="text-gray-500 dark:text-gray-400 animate-shake">seit Jahren</span>{' '}
-            vergeblich unter die{' '}
-            <span className="relative">
-              <span className="text-accent-yellow animate-glow">TOP 3</span>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-accent-yellow rounded-full animate-slide-right"></div>
-            </span>{' '}
+    <section className="py-32 bg-gradient-to-br from-gray-900 via-red-900 to-black dark:from-black dark:via-red-950 dark:to-gray-900 relative overflow-hidden">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,_rgba(255,0,0,0.3)_0%,_transparent_50%)] animate-pulse-slow"></div>
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,_rgba(255,69,0,0.3)_0%,_transparent_50%)] animate-float"></div>
+        <div className="absolute bottom-0 left-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_100%,_rgba(255,140,0,0.2)_0%,_transparent_50%)] animate-float-delayed"></div>
+      </div>
+      
+      {/* Moving Grid Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24px,rgba(255,255,255,0.1)_25px,rgba(255,255,255,0.1)_26px,transparent_27px,transparent_74px,rgba(255,255,255,0.1)_75px,rgba(255,255,255,0.1)_76px,transparent_77px),linear-gradient(transparent_24px,rgba(255,255,255,0.1)_25px,rgba(255,255,255,0.1)_26px,transparent_27px,transparent_74px,rgba(255,255,255,0.1)_75px,rgba(255,255,255,0.1)_76px,transparent_77px)] bg-[size:100px_100px] animate-grid-move"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="text-center">
+          <h2 className="font-bowlby text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-12 relative">
+            Du versuchst seit Jahren vergeblich unter die{' '}
+            <div className="relative inline-block mt-6">
+              <span className="relative z-10 text-red-500 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent px-6 py-3 text-7xl md:text-9xl lg:text-[12rem] font-black animate-pulse-glow">
+                TOP 3
+              </span>
+              {/* Glowing border effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 rounded-xl blur-lg opacity-50 animate-pulse-glow"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 rounded-xl blur-xl opacity-30 animate-pulse-slow"></div>
+              
+              {/* Power indicators */}
+              <div className="absolute -top-8 -right-8 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+              <div className="absolute -bottom-8 -left-8 w-3 h-3 bg-orange-500 rounded-full animate-ping animation-delay-200"></div>
+              <div className="absolute -top-4 -left-12 w-2 h-2 bg-yellow-500 rounded-full animate-ping animation-delay-400"></div>
+            </div>{' '}
             zu kommen?
           </h2>
-          {/* 3D Animated Trophy/Award */}
+          
           <div className="mt-16 flex justify-center">
-            <div className="relative animate-trophy-float">
-              {/* Trophy Base */}
-              <div className="relative w-24 h-32 animate-trophy-tilt">
-                {/* Trophy Cup */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-20 bg-gradient-to-b from-yellow-400 via-yellow-500 to-yellow-600 rounded-t-full shadow-2xl animate-trophy-shine">
-                  {/* Trophy Handles */}
-                  <div className="absolute top-4 -left-2 w-4 h-8 border-4 border-yellow-500 rounded-full border-r-transparent"></div>
-                  <div className="absolute top-4 -right-2 w-4 h-8 border-4 border-yellow-500 rounded-full border-l-transparent"></div>
-                  
-                  {/* Trophy Shine Effect */}
-                  <div className="absolute top-2 left-2 w-6 h-12 bg-white opacity-30 rounded-full blur-sm animate-shine-sweep"></div>
-                  
-                  {/* Trophy Number "3" */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-yellow-900 font-bowlby text-xl font-bold">3</div>
-                </div>
-                
-                {/* Trophy Stem */}
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-4 h-6 bg-gradient-to-b from-yellow-600 to-yellow-700"></div>
-                
-                {/* Trophy Base */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-8 bg-gradient-to-b from-yellow-700 to-yellow-800 rounded-lg shadow-lg"></div>
-                
-                {/* Floating "Just Out of Reach" Elements */}
-                <div className="absolute -top-4 -left-4 w-3 h-3 bg-red-400 rounded-full animate-struggle-float opacity-60"></div>
-                <div className="absolute -top-6 right-2 w-2 h-2 bg-red-500 rounded-full animate-struggle-float-delayed opacity-40"></div>
-                <div className="absolute top-2 -right-6 w-4 h-4 bg-orange-400 rounded-full animate-struggle-bounce opacity-50"></div>
-              </div>
-            </div>
+            <div className="w-32 h-1 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 rounded-full animate-expand-glow"></div>
           </div>
           
-          <div className="mt-8 flex justify-center space-x-4">
-            <div className="w-8 h-8 bg-accent-yellow rounded-full opacity-30 animate-bounce-sequence-1"></div>
-            <div className="w-8 h-8 bg-accent-yellow rounded-full opacity-60 animate-bounce-sequence-2"></div>
-            <div className="w-8 h-8 bg-accent-yellow rounded-full animate-bounce-sequence-3"></div>
-          </div>
-          
-          {/* Animated stress indicators */}
-          <div className="absolute top-10 left-1/4 w-2 h-2 bg-red-400 rounded-full animate-stress-pulse"></div>
-          <div className="absolute top-20 right-1/3 w-3 h-3 bg-red-300 rounded-full animate-stress-pulse-delayed"></div>
-          
-          {/* Progress bars showing struggle */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-300 dark:bg-gray-600 rounded-full overflow-hidden">
-            <div className="h-full bg-accent-yellow rounded-full animate-progress-struggle"></div>
-          </div>
+          <p className="mt-12 text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-medium">
+            Lass uns gemeinsam die Barrieren durchbrechen und dein Unternehmen an die Spitze bringen. 
+            Mit unserer bewährten Strategie eroberst du endlich die Position, die du verdienst.
+          </p>
         </div>
       </div>
+      
+      {/* Floating particles */}
+      <div className="absolute top-20 left-20 w-2 h-2 bg-red-400 rounded-full animate-float opacity-60"></div>
+      <div className="absolute top-40 right-32 w-3 h-3 bg-orange-400 rounded-full animate-float-delayed opacity-40"></div>
+      <div className="absolute bottom-32 left-16 w-2 h-2 bg-yellow-400 rounded-full animate-bounce-slow opacity-50"></div>
+      <div className="absolute bottom-20 right-20 w-3 h-3 bg-red-500 rounded-full animate-pulse opacity-60"></div>
+      <div className="absolute top-60 left-1/3 w-2 h-2 bg-orange-500 rounded-full animate-float opacity-30"></div>
+      <div className="absolute top-80 right-1/4 w-3 h-3 bg-red-400 rounded-full animate-bounce-slow opacity-40"></div>
     </section>
   );
 }
