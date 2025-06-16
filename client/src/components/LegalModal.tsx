@@ -135,7 +135,7 @@ export default function LegalModal() {
         
         {content && (
           <div 
-            className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300"
+            className="prose prose-lg max-w-none text-gray-800 dark:text-gray-200 prose-headings:text-gray-900 dark:prose-headings:text-white prose-strong:text-gray-900 dark:prose-strong:text-white"
             dangerouslySetInnerHTML={{ __html: content.content }}
           />
         )}

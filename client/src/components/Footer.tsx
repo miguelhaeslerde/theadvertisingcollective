@@ -14,7 +14,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-12">
           {/* Company Info */}
@@ -22,7 +22,7 @@ export default function Footer() {
             <div className="flex items-center mb-6">
               <img src="/tac-logo-light.png" alt="TAC Logo" className="h-10 w-auto" />
             </div>
-            <p className="text-gray-300 mb-8 leading-relaxed text-sm">
+            <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-sm">
               The Advertising Collective - Ihr Partner für strategische Unternehmensberatung 
               und nachhaltige Geschäftsentwicklung.
             </p>
@@ -31,7 +31,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-accent-yellow transition-colors"
+                className="text-gray-500 dark:text-gray-400 hover:text-accent-yellow transition-colors"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
@@ -39,7 +39,7 @@ export default function Footer() {
                 href="https://xing.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-accent-yellow transition-colors"
+                className="text-gray-500 dark:text-gray-400 hover:text-accent-yellow transition-colors"
               >
                 <SiXing className="h-6 w-6" />
               </a>
@@ -47,7 +47,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-accent-yellow transition-colors"
+                className="text-gray-500 dark:text-gray-400 hover:text-accent-yellow transition-colors"
               >
                 <Twitter className="h-6 w-6" />
               </a>
@@ -56,8 +56,8 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-bowlby text-lg mb-6 text-white">NAVIGATION</h4>
-            <ul className="space-y-4 text-gray-300">
+            <h4 className="font-bowlby text-lg mb-6 text-gray-900 dark:text-white">NAVIGATION</h4>
+            <ul className="space-y-4 text-gray-600 dark:text-gray-300">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <Link
@@ -73,8 +73,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bowlby text-lg mb-6 text-white">KONTAKT</h4>
-            <div className="space-y-4 text-gray-300 text-sm">
+            <h4 className="font-bowlby text-lg mb-6 text-gray-900 dark:text-white">KONTAKT</h4>
+            <div className="space-y-4 text-gray-600 dark:text-gray-300 text-sm">
               <div className="leading-relaxed">
                 Maximilianstraße 12<br />
                 80539 München<br />
@@ -87,27 +87,27 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-700 pt-10 mt-4">
+        <div className="border-t border-gray-300 dark:border-gray-700 pt-10 mt-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 mb-6 md:mb-0 text-sm">
+            <div className="text-gray-500 dark:text-gray-400 mb-6 md:mb-0 text-sm">
               © {currentYear} The Advertising Collective. Alle Rechte vorbehalten.
             </div>
-            <div className="flex space-x-8 text-gray-400 text-sm">
+            <div className="flex space-x-8 text-gray-600 dark:text-gray-400 text-sm">
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'impressum' }))}
-                className="hover:text-accent-yellow transition-colors dark:text-gray-300 dark:hover:text-accent-yellow"
+                className="hover:text-accent-yellow transition-colors"
               >
                 Impressum
               </button>
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'datenschutz' }))}
-                className="hover:text-accent-yellow transition-colors dark:text-gray-300 dark:hover:text-accent-yellow"
+                className="hover:text-accent-yellow transition-colors"
               >
                 Datenschutz
               </button>
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'agb' }))}
-                className="hover:text-accent-yellow transition-colors dark:text-gray-300 dark:hover:text-accent-yellow"
+                className="hover:text-accent-yellow transition-colors"
               >
                 AGB
               </button>
