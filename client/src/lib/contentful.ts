@@ -80,7 +80,7 @@ class ContentfulClient {
 
   async getBlogPosts(limit: number = 10, skip: number = 0): Promise<ContentfulResponse<ContentfulBlogPost>> {
     return this.request<ContentfulResponse<ContentfulBlogPost>>('/entries', {
-      content_type: 'blogPost',
+      content_type: 'blog',
       limit: limit.toString(),
       skip: skip.toString(),
       order: '-fields.publishedDate',
@@ -90,13 +90,16 @@ class ContentfulClient {
 
   async getBlogPostBySlug(slug: string): Promise<ContentfulResponse<ContentfulBlogPost>> {
     return this.request<ContentfulResponse<ContentfulBlogPost>>('/entries', {
-      content_type: 'blogPost',
+      content_type: 'blog',
       'fields.slug': slug,
       include: '2'
     });
   }
 
   getAssetUrl(asset: ContentfulAsset): string {
+    if (!asset || !asset.fields || !asset.fields.file || !asset.fields.file.url) {
+      return 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&w=600&h=300&fit=crop';
+    }
     const url = asset.fields.file.url;
     return url.startsWith('//') ? `https:${url}` : url;
   }

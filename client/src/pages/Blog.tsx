@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'wouter';
-import { ArrowRight, Sun, Moon, Calendar, Clock } from 'lucide-react';
+import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import Layout from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { useTheme } from '@/contexts/ThemeContext';
 import { contentfulClient, ContentfulBlogPost } from '@/lib/contentful';
 
 export default function Blog() {
-  const { theme, toggleTheme } = useTheme();
   const [currentPage, setCurrentPage] = useState(0);
   const postsPerPage = 9;
 
@@ -41,40 +39,16 @@ export default function Blog() {
       title="Blog - The Advertising Collective"
       description="Aktuelle Insights und Expertise aus der Welt der Unternehmensberatung. Bleiben Sie auf dem Laufenden mit unseren Fachartikeln und Branchenanalysen."
     >
-      {/* Hero Section with Dark Mode Toggle */}
+      {/* Hero Section */}
       <section className="bg-main-bg dark:bg-main-dark py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16">
-            <div className="mb-8 md:mb-0">
-              <h1 className="font-bowlby text-4xl md:text-5xl text-gray-900 dark:text-white mb-4">
-                UNSER <span className="text-accent-yellow">BLOG</span>
-              </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
-                Aktuelle Insights und Expertise aus der Welt der Unternehmensberatung
-              </p>
-            </div>
-
-            {/* Dark Mode Toggle */}
-            <div className="flex items-center space-x-3">
-              <Sun className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-              <Button
-                onClick={toggleTheme}
-                variant="outline"
-                size="sm"
-                className={`relative h-6 w-11 rounded-full p-0 ${
-                  theme === 'dark' 
-                    ? 'bg-accent-yellow border-accent-yellow' 
-                    : 'bg-gray-200 border-gray-300'
-                }`}
-              >
-                <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    theme === 'dark' ? 'translate-x-6' : 'translate-x-1'
-                  }`}
-                />
-              </Button>
-              <Moon className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-            </div>
+          <div className="text-center">
+            <h1 className="font-bowlby text-4xl md:text-5xl text-gray-900 dark:text-white mb-4">
+              UNSER <span className="text-accent-yellow">BLOG</span>
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Aktuelle Insights und Expertise aus der Welt der Unternehmensberatung
+            </p>
           </div>
         </div>
       </section>
@@ -116,9 +90,15 @@ export default function Blog() {
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {blogData.items.map((post: ContentfulBlogPost) => {
-                  const coverImageUrl = post.fields.coverImage 
-                    ? contentfulClient.getAssetUrl(post.fields.coverImage)
-                    : 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&w=600&h=300&fit=crop';
+                  // Find the actual asset from the includes section
+                  let coverImageUrl = 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&w=600&h=300&fit=crop';
+                  
+                  if (post.fields.coverImage && blogData.includes?.Asset) {
+                    const asset = blogData.includes.Asset.find(a => a.sys.id === post.fields.coverImage?.sys.id);
+                    if (asset) {
+                      coverImageUrl = contentfulClient.getAssetUrl(asset);
+                    }
+                  }
                   
                   const excerpt = contentfulClient.formatRichText(post.fields.body).substring(0, 150) + '...';
                   const readingTime = calculateReadingTime(contentfulClient.formatRichText(post.fields.body));
