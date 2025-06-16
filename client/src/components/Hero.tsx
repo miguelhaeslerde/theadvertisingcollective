@@ -10,7 +10,7 @@ export default function Hero() {
           <h1 className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white mb-8 leading-tight">
             WIR MACHEN DACHs{' '}
             <span className="relative inline-block">
-              <span className="bg-gray-900 dark:bg-white text-accent-yellow dark:text-gray-900 px-6 py-3 inline-block transform -rotate-1 shadow-lg">
+              <span className="bg-gray-900 dark:bg-accent-yellow text-accent-yellow dark:text-gray-900 px-6 py-3 inline-block transform -rotate-1 shadow-lg">
                 AGENTUR & COACHING ELITE
               </span>
             </span>{' '}
@@ -35,15 +35,12 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-accent-yellow hover:bg-yellow-300 text-gray-900 font-bowlby py-4 px-8 text-base">
-              JETZT KOSTENLOS BEWERBEN
-            </Button>
-            <Button
-              variant="outline"
-              className="border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 font-bowlby py-4 px-8 text-base"
-            >
-              UND EIN PITCH DECK ERHALTEN
+          <div className="flex justify-center">
+            <Button className="bg-accent-yellow hover:bg-yellow-300 text-gray-900 font-bowlby py-6 px-12 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="text-center">
+                <div className="text-xl font-bold">JETZT KOSTENLOS BEWERBEN</div>
+                <div className="text-sm font-normal italic">Und ein Pitch Deck anfordern</div>
+              </div>
             </Button>
           </div>
         </div>

@@ -54,22 +54,20 @@ export default function Header() {
             {/* Dark Mode Toggle */}
             <div className="flex items-center space-x-2">
               <Sun className="h-4 w-4 text-gray-600 dark:text-gray-300" />
-              <Button
+              <button
                 onClick={toggleTheme}
-                variant="outline"
-                size="sm"
-                className={`relative h-6 w-11 rounded-full p-0 border-2 ${
+                className={`relative h-6 w-11 rounded-full border-2 transition-all duration-300 ${
                   theme === 'dark' 
                     ? 'bg-accent-yellow border-accent-yellow' 
                     : 'bg-gray-200 border-gray-300'
                 }`}
               >
                 <span
-                  className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
-                    theme === 'dark' ? 'translate-x-5' : 'translate-x-0.5'
+                  className={`absolute top-0.5 left-0.5 inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 ${
+                    theme === 'dark' ? 'translate-x-5' : 'translate-x-0'
                   }`}
                 />
-              </Button>
+              </button>
               <Moon className="h-4 w-4 text-gray-600 dark:text-gray-300" />
             </div>
           </div>
