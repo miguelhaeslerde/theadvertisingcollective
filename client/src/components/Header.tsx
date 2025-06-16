@@ -30,7 +30,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center">
             <img 
-              src={theme === 'dark' ? logoIcon : logoIconLight} 
+              src={theme === 'dark' ? logoIconLight : logoIcon} 
               alt="The Advertising Collective" 
               className="h-10 w-auto"
             />
