@@ -9,7 +9,7 @@ import InteractiveGlobe from '@/components/InteractiveGlobe';
 // Top Provider Section Component
 function TopProviderSection() {
   return (
-    <section className="pt-20 py-20 bg-brightest dark:bg-gray-900 overflow-hidden relative" style={{marginTop: '-1rem', isolation: 'auto'}}>
+    <section className="pt-20 py-20 bg-brightest dark:bg-gray-900 overflow-hidden relative z-10" style={{marginTop: '-1rem'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative">
           {/* Text Content */}
@@ -108,13 +108,10 @@ export default function Home() {
       <div className="relative">
         <CustomerLogos />
         <TopProviderSection />
-      </div>
-      
-      {/* Fixed Diagonal Divider Overlay - Cannot be covered by any section */}
-      <div className="fixed top-0 left-0 right-0 bottom-0 pointer-events-none z-[9999]">
-        {/* Diagonal Divider between UNSERE KUNDEN and TOP 10 sections */}
-        <div className="absolute top-[460px] -left-8 -right-8 bg-accent-yellow transform -skew-y-2 py-3 overflow-hidden h-12 pointer-events-auto">
-          <div className="transform skew-y-2">
+        
+        {/* Diagonal Divider - Overlapping both sections */}
+        <div className="absolute -bottom-2 -left-8 -right-8 bg-accent-yellow transform skew-y-2 py-3 overflow-hidden z-[150] h-12">
+          <div className="relative">
             {/* Scrolling TAC Text following diagonal angle */}
             <div className="flex animate-scroll-tac">
               {/* Single continuous line of TAC text */}
