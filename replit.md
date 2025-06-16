@@ -119,7 +119,10 @@ The Advertising Collective (TAC) is a modern full-stack web application built fo
 
 ## Changelog
 
-- June 16, 2025. Initial setup
+- June 16, 2025: Initial setup
+- June 16, 2025: Implemented complete diagonal yellow divider system with scrolling animations
+- June 16, 2025: Added customer logo dividers between sections, removed duplicate static logos
+- June 16, 2025: Corrected diagonal angles for better section coverage on widescreen displays
 
 ## User Preferences
 

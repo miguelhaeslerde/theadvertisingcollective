@@ -20,23 +20,7 @@ export default function CustomerLogos() {
         </h3>
       </div>
       
-      {/* Static Customer Logos Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
-          {customerLogos.map((logo, index) => (
-            <div
-              key={index}
-              className="h-12 w-28 flex items-center justify-center bg-white rounded-lg p-3 opacity-90 hover:opacity-100 transition-opacity shadow-md"
-            >
-              <img
-                src={logo.url}
-                alt={logo.name}
-                className="max-h-8 max-w-full object-contain filter grayscale hover:grayscale-0 transition-all"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+
     </section>
   );
 }
