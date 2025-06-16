@@ -1,8 +1,10 @@
 import { Link } from 'wouter';
 import { Linkedin, Twitter } from 'lucide-react';
 import { SiXing } from 'react-icons/si';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Footer() {
+  const { theme } = useTheme();
   const navigation = [
     { name: 'Agency Maxxing', href: '/agency-maxxing' },
     { name: '2025 Growth Strategy', href: '/growth-strategy' },
@@ -20,7 +22,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <img src="/tac-logo-light.png" alt="TAC Logo" className="h-10 w-auto" />
+              <img 
+                src={theme === 'dark' ? '/tac-logo-light.png' : '/tac-logo-dark.png'} 
+                alt="TAC Logo" 
+                className="h-10 w-auto" 
+              />
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-sm">
               The Advertising Collective - Ihr Partner für strategische Unternehmensberatung 
