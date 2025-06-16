@@ -3,15 +3,6 @@ import { Linkedin, Twitter } from 'lucide-react';
 import { SiXing } from 'react-icons/si';
 
 export default function Footer() {
-  const services = [
-    'Strategieberatung',
-    'Digitale Transformation',
-    'Change Management',
-    'Prozessoptimierung',
-    'M&A Beratung',
-    'Training & Coaching',
-  ];
-
   const navigation = [
     { name: 'Agency Maxxing', href: '/agency-maxxing' },
     { name: '2025 Growth Strategy', href: '/growth-strategy' },
@@ -20,13 +11,17 @@ export default function Footer() {
     { name: 'Kontakt', href: '/contact' },
   ];
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div>
-            <div className="font-bowlby text-2xl mb-4">TAC</div>
+            <div className="flex items-center mb-4">
+              <img src="/attached_assets/iconlight_1750062405088.png" alt="TAC Logo" className="h-8 w-auto" />
+            </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               The Advertising Collective - Ihr Partner für strategische Unternehmensberatung 
               und nachhaltige Geschäftsentwicklung.
@@ -57,23 +52,6 @@ export default function Footer() {
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="font-bowlby text-lg mb-4">LEISTUNGEN</h4>
-            <ul className="space-y-3 text-gray-300">
-              {services.map((service) => (
-                <li key={service}>
-                  <Link
-                    href="/services"
-                    className="hover:text-accent-yellow transition-colors"
-                  >
-                    {service}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Navigation */}
@@ -112,24 +90,24 @@ export default function Footer() {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 mb-4 md:mb-0">
-              © 2024 The Advertising Collective. Alle Rechte vorbehalten.
+              © {currentYear} The Advertising Collective. Alle Rechte vorbehalten.
             </div>
             <div className="flex space-x-6 text-gray-400">
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'impressum' }))}
-                className="hover:text-accent-yellow transition-colors"
+                className="hover:text-accent-yellow transition-colors dark:text-gray-300 dark:hover:text-accent-yellow"
               >
                 Impressum
               </button>
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'datenschutz' }))}
-                className="hover:text-accent-yellow transition-colors"
+                className="hover:text-accent-yellow transition-colors dark:text-gray-300 dark:hover:text-accent-yellow"
               >
                 Datenschutz
               </button>
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('openLegalModal', { detail: 'agb' }))}
-                className="hover:text-accent-yellow transition-colors"
+                className="hover:text-accent-yellow transition-colors dark:text-gray-300 dark:hover:text-accent-yellow"
               >
                 AGB
               </button>

@@ -15,9 +15,12 @@ export default function CustomerLogos() {
     <section className="py-16 pb-20 bg-main-bg dark:bg-main-dark relative overflow-hidden">
       {/* Title above the diagonal section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <h3 className="font-bowlby text-2xl md:text-3xl text-gray-900 dark:text-white text-center">
+        <h3 className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white text-center leading-tight">
           UNSERE KUNDEN
         </h3>
+        <div className="mt-8 flex justify-center">
+          <div className="w-32 h-1 bg-accent-yellow rounded-full animate-expand-glow"></div>
+        </div>
       </div>
       
 

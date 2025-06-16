@@ -73,24 +73,22 @@ export default function About() {
         {/* CTA Section */}
         <div className="relative">
           <div className="bg-accent-yellow/10 backdrop-blur-sm rounded-3xl p-12 border border-accent-yellow/30">
-            <h3 className="font-bowlby text-3xl md:text-4xl lg:text-5xl text-white mb-8">
-              BEREIT FÜR DEN SPRUNG IN DIE TOP 3?
+            <h3 className="font-bowlby text-3xl md:text-4xl lg:text-5xl text-white mb-8 leading-tight">
+              BEREIT FÜR DEN SPRUNG IN DIE{' '}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-accent-yellow">TOP 3</span>
+                <div className="absolute inset-0 text-accent-yellow blur-sm opacity-30 animate-pulse-slow"></div>
+              </span>?
             </h3>
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
               Lassen Sie uns in einem kostenlosen Strategiegespräch analysieren, 
               wie Sie endlich die Marktführerschaft in Ihrer Branche erreichen.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex justify-center">
               <Link href="/contact">
-                <Button className="bg-accent-yellow hover:bg-accent-yellow/90 text-gray-900 font-bold px-12 py-4 text-lg rounded-full transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-accent-yellow/30">
-                  KOSTENLOSES STRATEGIEGESPRÄCH
-                </Button>
-              </Link>
-              
-              <Link href="/agency-maxxing">
-                <Button variant="outline" className="border-2 border-accent-yellow text-accent-yellow hover:bg-accent-yellow hover:text-gray-900 font-bold px-8 py-4 text-lg rounded-full transform hover:scale-105 transition-all duration-300">
-                  AGENCY MAXXING ENTDECKEN
+                <Button className="bg-accent-yellow hover:bg-accent-yellow/90 text-gray-900 font-bold px-12 py-4 text-xl rounded-full transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-accent-yellow/30">
+                  KOSTENLOSES STRATEGIEGESPRÄCH BUCHEN
                 </Button>
               </Link>
             </div>
