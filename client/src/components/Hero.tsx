@@ -36,10 +36,10 @@ export default function Hero() {
           </div>
 
           <div className="flex justify-center">
-            <Button className="bg-accent-yellow hover:bg-yellow-300 text-gray-900 font-bowlby py-6 px-12 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Button className="bg-accent-yellow hover:bg-yellow-300 text-gray-900 py-8 px-16 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full max-w-4xl">
               <div className="text-center">
-                <div className="text-xl font-bold">JETZT KOSTENLOS BEWERBEN</div>
-                <div className="text-sm font-normal italic">Und ein Pitch Deck anfordern</div>
+                <div className="text-2xl md:text-3xl font-bowlby font-bold mb-2">JETZT KOSTENLOS BEWERBEN</div>
+                <div className="text-lg md:text-xl font-normal italic" style={{ fontFamily: 'Instrument Sans, sans-serif' }}>UND EIN PITCH DECK ANFORDERN</div>
               </div>
             </Button>
           </div>

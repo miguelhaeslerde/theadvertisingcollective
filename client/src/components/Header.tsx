@@ -40,8 +40,10 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`font-medium transition-colors ${
-                    isActive(item.href)
+                  className={`font-bowlby font-medium transition-colors px-3 py-2 rounded-lg ${
+                    item.name === '2025 GROWTH STRATEGY'
+                      ? 'bg-accent-yellow text-gray-900 hover:bg-yellow-300'
+                      : isActive(item.href)
                       ? 'text-gray-900 dark:text-white'
                       : 'text-gray-600 dark:text-gray-300 hover:text-accent-yellow'
                   }`}
@@ -102,8 +104,10 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block px-3 py-2 text-base font-medium transition-colors ${
-                    isActive(item.href)
+                  className={`block px-3 py-2 text-base font-bowlby font-medium transition-colors rounded-lg mx-2 ${
+                    item.name === '2025 GROWTH STRATEGY'
+                      ? 'bg-accent-yellow text-gray-900 hover:bg-yellow-300'
+                      : isActive(item.href)
                       ? 'text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800'
                       : 'text-gray-600 dark:text-gray-300 hover:text-accent-yellow hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
