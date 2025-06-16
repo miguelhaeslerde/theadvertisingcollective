@@ -1,0 +1,36 @@
+2025-06-16T19:41:22.567346Z	Cloning repository...
+2025-06-16T19:41:23.741799Z	From https://github.com/miguelhaeslerde/theadvertisingcollective
+2025-06-16T19:41:23.742293Z	 * branch            1afcc7a721ff75a0e2e16af0a57697f5d30fb695 -> FETCH_HEAD
+2025-06-16T19:41:23.742468Z	
+2025-06-16T19:41:23.875786Z	HEAD is now at 1afcc7a Enable proper website navigation for all pages within the application
+2025-06-16T19:41:23.876218Z	
+2025-06-16T19:41:23.954873Z	
+2025-06-16T19:41:23.9557Z	Using v2 root directory strategy
+2025-06-16T19:41:23.977186Z	Success: Finished cloning repository files
+2025-06-16T19:41:25.820919Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-06-16T19:41:25.821652Z	
+2025-06-16T19:41:26.921626Z	No wrangler.toml file found. Continuing.
+2025-06-16T19:41:26.987863Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2025-06-16T19:41:26.988627Z	Installing project dependencies: npm clean-install --progress=false
+2025-06-16T19:41:31.592591Z	npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+2025-06-16T19:41:31.656997Z	npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+2025-06-16T19:41:37.223188Z	
+2025-06-16T19:41:37.223462Z	added 523 packages, and audited 524 packages in 10s
+2025-06-16T19:41:37.223564Z	
+2025-06-16T19:41:37.223625Z	67 packages are looking for funding
+2025-06-16T19:41:37.223681Z	  run `npm fund` for details
+2025-06-16T19:41:37.252887Z	
+2025-06-16T19:41:37.253212Z	8 vulnerabilities (1 low, 7 moderate)
+2025-06-16T19:41:37.253318Z	
+2025-06-16T19:41:37.25339Z	To address issues that do not require attention, run:
+2025-06-16T19:41:37.254065Z	  npm audit fix
+2025-06-16T19:41:37.254473Z	
+2025-06-16T19:41:37.254608Z	To address all issues (including breaking changes), run:
+2025-06-16T19:41:37.254682Z	  npm audit fix --force
+2025-06-16T19:41:37.254749Z	
+2025-06-16T19:41:37.254814Z	Run `npm audit` for details.
+2025-06-16T19:41:37.283497Z	Executing user command: ./build.sh
+2025-06-16T19:41:37.291682Z	/bin/sh: 1: ./build.sh: not found
+2025-06-16T19:41:37.293445Z	Failed: Error while executing user command. Exited with error code: 127
+2025-06-16T19:41:37.305571Z	Failed: build command exited with code: 1
+2025-06-16T19:41:38.230763Z	Failed: error occurred while running build command
