@@ -104,8 +104,90 @@ class ContentfulClient {
     return url.startsWith('//') ? `https:${url}` : url;
   }
 
-  formatRichText(richText: any): string {
-    // Basic rich text formatting - in a real app you'd want a proper rich text renderer
+  formatRichText(richText: any): any[] {
+    // Enhanced rich text formatting that preserves structure
+    if (!richText || !richText.content) return [];
+    
+    return richText.content.map((node: any, index: number) => {
+      const key = `node-${index}`;
+      
+      switch (node.nodeType) {
+        case 'heading-1':
+          return {
+            type: 'h1',
+            key,
+            content: node.content?.map((c: any) => c.value || '').join('') || ''
+          };
+        case 'heading-2':
+          return {
+            type: 'h2',
+            key,
+            content: node.content?.map((c: any) => c.value || '').join('') || ''
+          };
+        case 'heading-3':
+          return {
+            type: 'h3',
+            key,
+            content: node.content?.map((c: any) => c.value || '').join('') || ''
+          };
+        case 'heading-4':
+          return {
+            type: 'h4',
+            key,
+            content: node.content?.map((c: any) => c.value || '').join('') || ''
+          };
+        case 'heading-5':
+          return {
+            type: 'h5',
+            key,
+            content: node.content?.map((c: any) => c.value || '').join('') || ''
+          };
+        case 'heading-6':
+          return {
+            type: 'h6',
+            key,
+            content: node.content?.map((c: any) => c.value || '').join('') || ''
+          };
+        case 'paragraph':
+          return {
+            type: 'p',
+            key,
+            content: node.content?.map((c: any) => c.value || '').join('') || ''
+          };
+        case 'unordered-list':
+          return {
+            type: 'ul',
+            key,
+            items: node.content?.map((listItem: any, itemIndex: number) => ({
+              key: `${key}-item-${itemIndex}`,
+              content: listItem.content?.map((paragraph: any) => 
+                paragraph.content?.map((c: any) => c.value || '').join('') || ''
+              ).join('') || ''
+            })) || []
+          };
+        case 'ordered-list':
+          return {
+            type: 'ol',
+            key,
+            items: node.content?.map((listItem: any, itemIndex: number) => ({
+              key: `${key}-item-${itemIndex}`,
+              content: listItem.content?.map((paragraph: any) => 
+                paragraph.content?.map((c: any) => c.value || '').join('') || ''
+              ).join('') || ''
+            })) || []
+          };
+        default:
+          return {
+            type: 'p',
+            key,
+            content: node.content?.map((c: any) => c.value || '').join('') || ''
+          };
+      }
+    }).filter(node => node.content || node.items?.length);
+  }
+
+  formatRichTextSimple(richText: any): string {
+    // Simple text extraction for reading time calculation
     if (!richText || !richText.content) return '';
     
     return richText.content
@@ -113,9 +195,12 @@ class ContentfulClient {
         if (node.nodeType === 'paragraph') {
           return node.content?.map((c: any) => c.value || '').join('') || '';
         }
+        if (node.nodeType.startsWith('heading-')) {
+          return node.content?.map((c: any) => c.value || '').join('') || '';
+        }
         return '';
       })
-      .join('\n\n');
+      .join(' ');
   }
 }
 

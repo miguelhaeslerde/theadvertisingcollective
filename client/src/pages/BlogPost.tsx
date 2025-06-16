@@ -91,13 +91,14 @@ export default function BlogPost() {
     }
   }
 
-  const content = contentfulClient.formatRichText(post.fields.body);
-  const readingTime = calculateReadingTime(content);
+  const contentNodes = contentfulClient.formatRichText(post.fields.body);
+  const plainTextContent = contentfulClient.formatRichTextSimple(post.fields.body);
+  const readingTime = calculateReadingTime(plainTextContent);
 
   return (
     <Layout
       title={`${post.fields.title} - The Advertising Collective Blog`}
-      description={content.substring(0, 160) + '...'}
+      description={plainTextContent.substring(0, 160) + '...'}
     >
       <article className="py-20 bg-brightest dark:bg-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,12 +136,74 @@ export default function BlogPost() {
           </header>
 
           {/* Article Content */}
-          <div className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300">
-            {content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="mb-6 leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+          <div className="max-w-none text-gray-700 dark:text-gray-300">
+            {contentNodes.map((node) => {
+              switch (node.type) {
+                case 'h1':
+                  return (
+                    <h1 key={node.key} className="font-bowlby text-4xl md:text-5xl text-gray-900 dark:text-white mb-8 mt-12 leading-tight">
+                      {node.content}
+                    </h1>
+                  );
+                case 'h2':
+                  return (
+                    <h2 key={node.key} className="font-bowlby text-3xl md:text-4xl text-gray-900 dark:text-white mb-6 mt-10 leading-tight">
+                      {node.content}
+                    </h2>
+                  );
+                case 'h3':
+                  return (
+                    <h3 key={node.key} className="font-bowlby text-2xl md:text-3xl text-gray-900 dark:text-white mb-5 mt-8 leading-tight">
+                      {node.content}
+                    </h3>
+                  );
+                case 'h4':
+                  return (
+                    <h4 key={node.key} className="font-bowlby text-xl md:text-2xl text-gray-900 dark:text-white mb-4 mt-6 leading-tight">
+                      {node.content}
+                    </h4>
+                  );
+                case 'h5':
+                  return (
+                    <h5 key={node.key} className="font-bowlby text-lg md:text-xl text-gray-900 dark:text-white mb-4 mt-6 leading-tight">
+                      {node.content}
+                    </h5>
+                  );
+                case 'h6':
+                  return (
+                    <h6 key={node.key} className="font-bowlby text-base md:text-lg text-gray-900 dark:text-white mb-3 mt-5 leading-tight">
+                      {node.content}
+                    </h6>
+                  );
+                case 'ul':
+                  return (
+                    <ul key={node.key} className="list-disc pl-6 mb-6 space-y-2">
+                      {node.items?.map((item: any) => (
+                        <li key={item.key} className="leading-relaxed">
+                          {item.content}
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                case 'ol':
+                  return (
+                    <ol key={node.key} className="list-decimal pl-6 mb-6 space-y-2">
+                      {node.items?.map((item: any) => (
+                        <li key={item.key} className="leading-relaxed">
+                          {item.content}
+                        </li>
+                      ))}
+                    </ol>
+                  );
+                case 'p':
+                default:
+                  return (
+                    <p key={node.key} className="mb-6 leading-relaxed text-lg">
+                      {node.content}
+                    </p>
+                  );
+              }
+            })}
           </div>
 
           {/* Article Footer */}

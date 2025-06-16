@@ -64,7 +64,7 @@ export default function LatestBlogPosts() {
 
   const estimateReadingTime = (content: any) => {
     // Simple estimation: ~200 words per minute
-    const textContent = contentfulClient.formatRichText(content);
+    const textContent = contentfulClient.formatRichTextSimple(content);
     const wordCount = textContent.split(' ').length;
     return Math.ceil(wordCount / 200);
   };
