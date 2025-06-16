@@ -7,13 +7,15 @@ export default function Hero() {
     <section className="bg-main-bg dark:bg-main-dark py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto">
-          <h1 className="font-bowlby text-3xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight">
+          <h1 className="font-bowlby text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight">
             WIR MACHEN DACHs{' '}
-            <span className="relative inline-block">
-              <span className="bg-gray-900 dark:bg-accent-yellow text-accent-yellow dark:text-gray-900 px-3 py-2 sm:px-6 sm:py-3 inline-block transform -rotate-1 shadow-lg text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+            <br />
+            <span className="relative inline-block my-4">
+              <span className="bg-gray-900 dark:bg-accent-yellow text-accent-yellow dark:text-gray-900 px-3 py-2 sm:px-6 sm:py-3 inline-block transform -rotate-1 shadow-lg text-sm sm:text-lg md:text-xl lg:text-2xl">
                 AGENTUR & COACHING ELITE
               </span>
             </span>{' '}
+            <br />
             REICHER...
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
