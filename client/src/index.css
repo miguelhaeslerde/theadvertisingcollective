@@ -543,11 +543,11 @@
   @keyframes expandGlow {
     0% {
       width: 0;
-      box-shadow: 0 0 0 rgba(239, 68, 68, 0);
+      box-shadow: 0 0 0 rgba(255, 236, 65, 0);
     }
     100% {
       width: 8rem;
-      box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+      box-shadow: 0 0 20px rgba(255, 236, 65, 0.8);
     }
   }
 }

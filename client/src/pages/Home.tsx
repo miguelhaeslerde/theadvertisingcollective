@@ -60,42 +60,43 @@ function TopThreeSection() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="text-center">
-          <h2 className="font-bowlby text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-12 relative">
-            Du versuchst seit Jahren vergeblich unter die{' '}
-            <div className="relative inline-block mt-6">
-              <span className="relative z-10 text-red-500 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent px-6 py-3 text-7xl md:text-9xl lg:text-[12rem] font-black animate-pulse-glow">
-                TOP 3
-              </span>
-              {/* Glowing border effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 rounded-xl blur-lg opacity-50 animate-pulse-glow"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 rounded-xl blur-xl opacity-30 animate-pulse-slow"></div>
-              
-              {/* Power indicators */}
-              <div className="absolute -top-8 -right-8 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
-              <div className="absolute -bottom-8 -left-8 w-3 h-3 bg-orange-500 rounded-full animate-ping animation-delay-200"></div>
-              <div className="absolute -top-4 -left-12 w-2 h-2 bg-yellow-500 rounded-full animate-ping animation-delay-400"></div>
-            </div>{' '}
-            zu kommen?
+          <h2 className="font-bowlby text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-16 relative">
+            Du versuchst seit Jahren vergeblich unter die
           </h2>
           
-          <div className="mt-16 flex justify-center">
-            <div className="w-32 h-1 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 rounded-full animate-expand-glow"></div>
+          {/* TOP 3 as separate prominent line */}
+          <div className="relative mb-16">
+            <div className="relative inline-block">
+              <span className="relative z-10 font-bowlby text-8xl md:text-[10rem] lg:text-[14rem] xl:text-[16rem] font-black text-accent-yellow drop-shadow-2xl">
+                TOP 3
+              </span>
+              {/* Yellow glow effect - more subtle and readable */}
+              <div className="absolute inset-0 text-accent-yellow font-bowlby text-8xl md:text-[10rem] lg:text-[14rem] xl:text-[16rem] font-black blur-sm opacity-30 animate-pulse-slow"></div>
+              
+              {/* Power indicators in brand colors */}
+              <div className="absolute -top-8 -right-8 w-4 h-4 bg-accent-yellow rounded-full animate-ping"></div>
+              <div className="absolute -bottom-8 -left-8 w-3 h-3 bg-accent-yellow rounded-full animate-ping animation-delay-200"></div>
+              <div className="absolute -top-4 -left-12 w-2 h-2 bg-accent-yellow rounded-full animate-ping animation-delay-400"></div>
+            </div>
           </div>
           
-          <p className="mt-12 text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-medium">
-            Lass uns gemeinsam die Barrieren durchbrechen und dein Unternehmen an die Spitze bringen. 
-            Mit unserer bewährten Strategie eroberst du endlich die Position, die du verdienst.
-          </p>
+          <h3 className="font-bowlby text-4xl md:text-6xl lg:text-7xl text-white leading-tight relative">
+            zu kommen?
+          </h3>
+          
+          <div className="mt-16 flex justify-center">
+            <div className="w-32 h-1 bg-accent-yellow rounded-full animate-expand-glow"></div>
+          </div>
         </div>
       </div>
       
       {/* Floating particles */}
-      <div className="absolute top-20 left-20 w-2 h-2 bg-red-400 rounded-full animate-float opacity-60"></div>
-      <div className="absolute top-40 right-32 w-3 h-3 bg-orange-400 rounded-full animate-float-delayed opacity-40"></div>
-      <div className="absolute bottom-32 left-16 w-2 h-2 bg-yellow-400 rounded-full animate-bounce-slow opacity-50"></div>
-      <div className="absolute bottom-20 right-20 w-3 h-3 bg-red-500 rounded-full animate-pulse opacity-60"></div>
-      <div className="absolute top-60 left-1/3 w-2 h-2 bg-orange-500 rounded-full animate-float opacity-30"></div>
-      <div className="absolute top-80 right-1/4 w-3 h-3 bg-red-400 rounded-full animate-bounce-slow opacity-40"></div>
+      <div className="absolute top-20 left-20 w-2 h-2 bg-accent-yellow rounded-full animate-float opacity-60"></div>
+      <div className="absolute top-40 right-32 w-3 h-3 bg-accent-yellow rounded-full animate-float-delayed opacity-40"></div>
+      <div className="absolute bottom-32 left-16 w-2 h-2 bg-accent-yellow rounded-full animate-bounce-slow opacity-50"></div>
+      <div className="absolute bottom-20 right-20 w-3 h-3 bg-accent-yellow rounded-full animate-pulse opacity-60"></div>
+      <div className="absolute top-60 left-1/3 w-2 h-2 bg-accent-yellow rounded-full animate-float opacity-30"></div>
+      <div className="absolute top-80 right-1/4 w-3 h-3 bg-accent-yellow rounded-full animate-bounce-slow opacity-40"></div>
     </section>
   );
 }
