@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -32,8 +34,8 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
+            <div className="flex items-baseline space-x-8">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -48,10 +50,41 @@ export default function Header() {
                 </Link>
               ))}
             </div>
+            
+            {/* Dark Mode Toggle */}
+            <div className="flex items-center space-x-2">
+              <Sun className="h-4 w-4 text-gray-600 dark:text-gray-300" />
+              <Button
+                onClick={toggleTheme}
+                variant="outline"
+                size="sm"
+                className={`relative h-6 w-11 rounded-full p-0 border-2 ${
+                  theme === 'dark' 
+                    ? 'bg-accent-yellow border-accent-yellow' 
+                    : 'bg-gray-200 border-gray-300'
+                }`}
+              >
+                <span
+                  className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
+                    theme === 'dark' ? 'translate-x-5' : 'translate-x-0.5'
+                  }`}
+                />
+              </Button>
+              <Moon className="h-4 w-4 text-gray-600 dark:text-gray-300" />
+            </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Dark Mode Toggle */}
+            <Button
+              onClick={toggleTheme}
+              variant="ghost"
+              size="sm"
+              className="text-gray-600 dark:text-gray-300"
+            >
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
             <Button
               variant="ghost"
               size="sm"
