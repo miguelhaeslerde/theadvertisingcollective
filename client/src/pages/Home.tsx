@@ -7,6 +7,7 @@ import About from '@/components/About';
 import LatestBlogPosts from '@/components/LatestBlogPosts';
 import Contact from '@/components/Contact';
 import InteractiveGlobe from '@/components/InteractiveGlobe';
+import React from 'react';
 
 // Top Provider Section Component
 function TopProviderSection() {
@@ -113,10 +114,37 @@ export default function Home() {
         {/* Diagonal Divider with Customer Logos - Between UNSERE KUNDEN and TOP 10 */}
         <div className="absolute -bottom-4 -left-12 -right-12 bg-accent-yellow transform -skew-y-1 py-4 overflow-hidden z-[150] h-16">
           <div className="relative">
-            {/* Scrolling Customer Logos */}
-            <div className="flex animate-scroll">
-              {/* First set of customer logos */}
-              {Array.from({ length: 20 }).map((_, index) => {
+            {/* Draggable Customer Logos */}
+            <div 
+              className="flex cursor-grab active:cursor-grabbing select-none"
+              style={{
+                overflowX: 'auto',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch'
+              }}
+              onMouseDown={(e: React.MouseEvent) => {
+                const container = e.currentTarget;
+                const startX = e.pageX - container.offsetLeft;
+                const scrollLeft = container.scrollLeft;
+                
+                const handleMouseMove = (e: MouseEvent) => {
+                  const x = e.pageX - container.offsetLeft;
+                  const walk = (x - startX) * 2;
+                  container.scrollLeft = scrollLeft - walk;
+                };
+                
+                const handleMouseUp = () => {
+                  document.removeEventListener('mousemove', handleMouseMove);
+                  document.removeEventListener('mouseup', handleMouseUp);
+                };
+                
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+              }}
+            >
+              {/* Extended set of customer logos for infinite effect */}
+              {Array.from({ length: 50 }).map((_, index) => {
                 const logos = ['SAP', 'BMW', 'Siemens', 'Mercedes', 'VW', 'Bosch', 'Adidas', 'Bayer'];
                 const logo = logos[index % logos.length];
                 return (
@@ -138,10 +166,37 @@ export default function Home() {
         {/* Diagonal Divider - Between TOP 10 and TOP 3 */}
         <div className="absolute -bottom-4 -left-12 -right-12 bg-accent-yellow transform skew-y-1 py-4 overflow-hidden z-[150] h-16">
           <div className="relative">
-            {/* Scrolling TAC Text following diagonal angle */}
-            <div className="flex animate-scroll-tac">
-              {/* Single continuous line of TAC text */}
-              {[...Array(30)].map((_, index) => (
+            {/* Draggable TAC Text following diagonal angle */}
+            <div 
+              className="flex cursor-grab active:cursor-grabbing select-none"
+              style={{
+                overflowX: 'auto',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch'
+              }}
+              onMouseDown={(e: React.MouseEvent) => {
+                const container = e.currentTarget as HTMLElement;
+                const startX = e.pageX - container.offsetLeft;
+                const scrollLeft = container.scrollLeft;
+                
+                const handleMouseMove = (e: MouseEvent) => {
+                  const x = e.pageX - container.offsetLeft;
+                  const walk = (x - startX) * 2;
+                  container.scrollLeft = scrollLeft - walk;
+                };
+                
+                const handleMouseUp = () => {
+                  document.removeEventListener('mousemove', handleMouseMove);
+                  document.removeEventListener('mouseup', handleMouseUp);
+                };
+                
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+              }}
+            >
+              {/* Extended continuous line of TAC text */}
+              {[...Array(100)].map((_, index) => (
                 <span key={`tac-${index}`} className="font-bowlby text-lg md:text-xl lg:text-2xl text-gray-900 font-black tracking-wide flex-shrink-0 mr-6">
                   TAC
                 </span>
@@ -157,10 +212,37 @@ export default function Home() {
         {/* Diagonal Divider - Between TOP 3 and Services (mirrored direction) */}
         <div className="absolute -bottom-4 -left-12 -right-12 bg-accent-yellow transform -skew-y-1 py-4 overflow-hidden z-[150] h-16">
           <div className="relative">
-            {/* Scrolling TAC Text following diagonal angle */}
-            <div className="flex animate-scroll-tac">
-              {/* Single continuous line of TAC text */}
-              {[...Array(30)].map((_, index) => (
+            {/* Draggable TAC Text following diagonal angle */}
+            <div 
+              className="flex cursor-grab active:cursor-grabbing select-none"
+              style={{
+                overflowX: 'auto',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch'
+              }}
+              onMouseDown={(e: React.MouseEvent) => {
+                const container = e.currentTarget;
+                const startX = e.pageX - container.offsetLeft;
+                const scrollLeft = container.scrollLeft;
+                
+                const handleMouseMove = (e: MouseEvent) => {
+                  const x = e.pageX - container.offsetLeft;
+                  const walk = (x - startX) * 2;
+                  container.scrollLeft = scrollLeft - walk;
+                };
+                
+                const handleMouseUp = () => {
+                  document.removeEventListener('mousemove', handleMouseMove);
+                  document.removeEventListener('mouseup', handleMouseUp);
+                };
+                
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+              }}
+            >
+              {/* Extended continuous line of TAC text */}
+              {[...Array(100)].map((_, index) => (
                 <span key={`tac-services-${index}`} className="font-bowlby text-lg md:text-xl lg:text-2xl text-gray-900 font-black tracking-wide flex-shrink-0 mr-6">
                   TAC
                 </span>
