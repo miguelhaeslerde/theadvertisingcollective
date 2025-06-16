@@ -107,6 +107,19 @@ export default function Home() {
       <Hero />
       <CustomerLogos />
       <TopProviderSection />
+      
+      {/* Diagonal Divider - Mirrored Direction */}
+      <div className="bg-accent-yellow transform skew-y-2 py-8 relative overflow-hidden">
+        <div className="transform -skew-y-2">
+          {/* Optional subtle pattern or content */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-center">
+              <div className="w-24 h-1 bg-gray-900 opacity-20 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <TopThreeSection />
       <Services />
       <About />
