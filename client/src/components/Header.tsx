@@ -9,10 +9,9 @@ export default function Header() {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Leistungen', href: '/services' },
-    { name: 'Über uns', href: '/about' },
+    { name: 'AGENCY MAXXING', href: '/agency-maxxing' },
+    { name: '2025 GROWTH STRATEGY', href: '/growth-strategy' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Kontakt', href: '/contact' },
   ];
 
   const isActive = (href: string) => {

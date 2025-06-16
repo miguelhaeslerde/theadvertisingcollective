@@ -6,22 +6,20 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Home from "@/pages/Home";
-import Services from "@/pages/Services";
-import About from "@/pages/About";
+import AgencyMaxxing from "@/pages/AgencyMaxxing";
+import GrowthStrategy from "@/pages/GrowthStrategy";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
-import ContactPage from "@/pages/ContactPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/services" component={Services} />
-      <Route path="/about" component={About} />
+      <Route path="/agency-maxxing" component={AgencyMaxxing} />
+      <Route path="/growth-strategy" component={GrowthStrategy} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
-      <Route path="/contact" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
   );

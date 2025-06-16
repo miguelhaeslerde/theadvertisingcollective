@@ -108,4 +108,17 @@
   .focus\:ring-accent-yellow:focus {
     --tw-ring-color: var(--accent-yellow);
   }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 }
