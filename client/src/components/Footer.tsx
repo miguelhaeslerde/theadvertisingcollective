@@ -12,12 +12,11 @@ export default function Footer() {
     'Training & Coaching',
   ];
 
-  const company = [
-    { name: 'Über uns', href: '/about' },
-    { name: 'Unser Team', href: '/about#team' },
-    { name: 'Karriere', href: '/career' },
+  const navigation = [
+    { name: 'Agency Maxxing', href: '/agency-maxxing' },
+    { name: '2025 Growth Strategy', href: '/growth-strategy' },
     { name: 'Blog', href: '/blog' },
-    { name: 'News', href: '/news' },
+    { name: 'Über uns', href: '/about' },
     { name: 'Kontakt', href: '/contact' },
   ];
 
@@ -77,11 +76,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Navigation */}
           <div>
-            <h4 className="font-bowlby text-lg mb-4">UNTERNEHMEN</h4>
+            <h4 className="font-bowlby text-lg mb-4">NAVIGATION</h4>
             <ul className="space-y-3 text-gray-300">
-              {company.map((item) => (
+              {navigation.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}

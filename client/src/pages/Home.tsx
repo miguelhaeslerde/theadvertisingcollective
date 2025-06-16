@@ -2,7 +2,9 @@ import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import CustomerLogos from '@/components/CustomerLogos';
 import Services from '@/components/Services';
+import Team from '@/components/Team';
 import About from '@/components/About';
+import LatestBlogPosts from '@/components/LatestBlogPosts';
 import Contact from '@/components/Contact';
 import InteractiveGlobe from '@/components/InteractiveGlobe';
 
@@ -169,7 +171,9 @@ export default function Home() {
       </div>
       
       <Services />
+      <Team />
       <About />
+      <LatestBlogPosts />
       <Contact />
     </Layout>
   );
