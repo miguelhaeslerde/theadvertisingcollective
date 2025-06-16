@@ -1,0 +1,62 @@
+2025-06-16T19:36:15.867484Z	Cloning repository...
+2025-06-16T19:36:16.909519Z	From https://github.com/miguelhaeslerde/theadvertisingcollective
+2025-06-16T19:36:16.910001Z	 * branch            1afcc7a721ff75a0e2e16af0a57697f5d30fb695 -> FETCH_HEAD
+2025-06-16T19:36:16.91011Z	
+2025-06-16T19:36:17.038728Z	HEAD is now at 1afcc7a Enable proper website navigation for all pages within the application
+2025-06-16T19:36:17.039231Z	
+2025-06-16T19:36:17.124153Z	
+2025-06-16T19:36:17.12463Z	Using v2 root directory strategy
+2025-06-16T19:36:17.147161Z	Success: Finished cloning repository files
+2025-06-16T19:36:18.834937Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-06-16T19:36:18.835774Z	
+2025-06-16T19:36:19.942758Z	No wrangler.toml file found. Continuing.
+2025-06-16T19:36:20.008895Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2025-06-16T19:36:20.009474Z	Installing project dependencies: npm install --progress=false
+2025-06-16T19:36:24.669872Z	npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+2025-06-16T19:36:24.693937Z	npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+2025-06-16T19:36:30.614608Z	
+2025-06-16T19:36:30.61493Z	added 523 packages, and audited 524 packages in 10s
+2025-06-16T19:36:30.615059Z	
+2025-06-16T19:36:30.615212Z	67 packages are looking for funding
+2025-06-16T19:36:30.615418Z	  run `npm fund` for details
+2025-06-16T19:36:30.644598Z	
+2025-06-16T19:36:30.644945Z	8 vulnerabilities (1 low, 7 moderate)
+2025-06-16T19:36:30.645079Z	
+2025-06-16T19:36:30.645326Z	To address issues that do not require attention, run:
+2025-06-16T19:36:30.645459Z	  npm audit fix
+2025-06-16T19:36:30.645576Z	
+2025-06-16T19:36:30.64575Z	To address all issues (including breaking changes), run:
+2025-06-16T19:36:30.646163Z	  npm audit fix --force
+2025-06-16T19:36:30.646302Z	
+2025-06-16T19:36:30.646394Z	Run `npm audit` for details.
+2025-06-16T19:36:30.676429Z	Executing user command: npm run build
+2025-06-16T19:36:31.124714Z	
+2025-06-16T19:36:31.124986Z	> rest-express@1.0.0 build
+2025-06-16T19:36:31.125155Z	> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-06-16T19:36:31.125232Z	
+2025-06-16T19:36:31.402937Z	[36mvite v5.4.14 [32mbuilding for production...[36m[39m
+2025-06-16T19:36:31.45896Z	transforming...
+2025-06-16T19:36:31.841612Z	Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+2025-06-16T19:36:31.842101Z	  npx update-browserslist-db@latest
+2025-06-16T19:36:31.842502Z	  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-06-16T19:36:35.316149Z	[32m✓[39m 1736 modules transformed.
+2025-06-16T19:36:35.550843Z	rendering chunks...
+2025-06-16T19:36:35.56022Z	computing gzip size...
+2025-06-16T19:36:35.573687Z	[2m../dist/public/[22m[32mindex.html                                   [39m[1m[2m  0.63 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+2025-06-16T19:36:35.574022Z	[2m../dist/public/[22m[2massets/[22m[32miconlight_1750062405088-BRzQ0oWV.png  [39m[1m[2m  9.10 kB[22m[1m[22m
+2025-06-16T19:36:35.574204Z	[2m../dist/public/[22m[2massets/[22m[32micon_1750062230380-DB6Kew8e.png       [39m[1m[2m 10.11 kB[22m[1m[22m
+2025-06-16T19:36:35.574333Z	[2m../dist/public/[22m[2massets/[22m[35mindex-DTvc6tvY.css                    [39m[1m[2m100.47 kB[22m[1m[22m[2m │ gzip:  16.29 kB[22m
+2025-06-16T19:36:35.574481Z	[2m../dist/public/[22m[2massets/[22m[36mindex-BVpcNGqh.js                     [39m[1m[2m403.17 kB[22m[1m[22m[2m │ gzip: 126.90 kB[22m
+2025-06-16T19:36:35.574768Z	[32m✓ built in 4.15s[39m
+2025-06-16T19:36:35.631734Z	
+2025-06-16T19:36:35.632299Z	  dist/index.js  8.2kb
+2025-06-16T19:36:35.632428Z	
+2025-06-16T19:36:35.632772Z	⚡ Done in 8ms
+2025-06-16T19:36:35.654661Z	Finished
+2025-06-16T19:36:36.6124Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-06-16T19:36:36.613009Z	
+2025-06-16T19:36:37.729091Z	No wrangler.toml file found. Continuing.
+2025-06-16T19:36:37.729806Z	Note: No functions dir at /functions found. Skipping.
+2025-06-16T19:36:37.729943Z	Validating asset output directory
+2025-06-16T19:36:37.730049Z	Error: Output directory "client/dist" not found.
+2025-06-16T19:36:38.686984Z	Failed: build output directory not found
