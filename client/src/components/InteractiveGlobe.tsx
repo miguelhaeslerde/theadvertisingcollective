@@ -64,8 +64,8 @@ export default function InteractiveGlobe() {
   }, []);
 
   return (
-    <div className="flex justify-start items-center py-8 pl-8 md:pl-16">
-      <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
+    <div className="flex justify-center items-center py-8">
+      <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[24rem] lg:h-[24rem] xl:w-[28rem] xl:h-[28rem]">
         <canvas
           ref={canvasRef}
           style={{

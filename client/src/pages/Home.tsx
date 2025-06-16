@@ -11,20 +11,29 @@ function TopProviderSection() {
   return (
     <section className="py-20 bg-brightest dark:bg-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center relative">
-          <h2 className="font-bowlby text-4xl md:text-6xl text-gray-900 dark:text-white leading-tight animate-fade-in-up">
-            Du bist unter den{' '}
-            <span className="text-accent-yellow bg-gray-900 dark:bg-accent-yellow dark:text-gray-900 px-4 py-2 rounded-lg inline-block animate-pulse-glow transform hover:scale-110 transition-all duration-300">
-              TOP 10
-            </span>{' '}
-            Anbietern deines Marktes?
-          </h2>
-          <div className="mt-8 flex justify-center">
-            <div className="w-24 h-1 bg-accent-yellow rounded-full animate-expand"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative">
+          {/* Text Content */}
+          <div className="order-2 lg:order-1">
+            <h2 className="font-bowlby text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-900 dark:text-white leading-tight animate-fade-in-up">
+              Du bist unter den{' '}
+              <span className="text-accent-yellow bg-gray-900 dark:bg-accent-yellow dark:text-gray-900 px-3 py-2 rounded-lg inline-block animate-pulse-glow transform hover:scale-110 transition-all duration-300">
+                TOP 10
+              </span>{' '}
+              Anbietern deines Marktes?
+            </h2>
+            <div className="mt-8 flex justify-start">
+              <div className="w-24 h-1 bg-accent-yellow rounded-full animate-expand"></div>
+            </div>
+            <p className="mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+              Dann ist es Zeit für den nächsten Schritt. Wir helfen erfolgreichen Unternehmen dabei, 
+              ihre Marktposition zu dominieren und nachhaltiges Wachstum zu erzielen.
+            </p>
           </div>
           
           {/* Interactive 3D Globe */}
-          <InteractiveGlobe />
+          <div className="order-1 lg:order-2">
+            <InteractiveGlobe />
+          </div>
           
           {/* Floating elements animation */}
           <div className="absolute -top-10 -left-10 w-20 h-20 bg-accent-yellow opacity-10 rounded-full animate-float"></div>
