@@ -81,9 +81,15 @@ export default function BlogPost() {
     );
   }
 
-  const coverImageUrl = post.fields.coverImage 
-    ? contentfulClient.getAssetUrl(post.fields.coverImage)
-    : 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&w=1200&h=600&fit=crop';
+  // Find the actual asset from the includes section
+  let coverImageUrl = 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&w=1200&h=600&fit=crop';
+  
+  if (post.fields.coverImage && blogData.includes?.Asset) {
+    const asset = blogData.includes.Asset.find(a => a.sys.id === post.fields.coverImage?.sys.id);
+    if (asset) {
+      coverImageUrl = contentfulClient.getAssetUrl(asset);
+    }
+  }
 
   const content = contentfulClient.formatRichText(post.fields.body);
   const readingTime = calculateReadingTime(content);
