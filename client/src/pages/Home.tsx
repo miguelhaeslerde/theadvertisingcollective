@@ -9,7 +9,7 @@ import InteractiveGlobe from '@/components/InteractiveGlobe';
 // Top Provider Section Component
 function TopProviderSection() {
   return (
-    <section className="pt-20 py-20 bg-brightest dark:bg-gray-900 overflow-hidden relative" style={{marginTop: '-1rem'}}>
+    <section className="pt-20 py-20 bg-brightest dark:bg-gray-900 overflow-hidden relative z-10" style={{marginTop: '-1rem'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative">
           {/* Text Content */}

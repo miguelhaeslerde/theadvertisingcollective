@@ -21,7 +21,7 @@ export default function CustomerLogos() {
       </div>
       
       {/* Diagonal Banner with Logos - Positioned absolutely at bottom */}
-      <div className="absolute -bottom-2 left-0 right-0 bg-accent-yellow transform -skew-y-2 py-8 overflow-hidden z-50 h-20">
+      <div className="absolute -bottom-2 left-0 right-0 bg-accent-yellow transform -skew-y-2 py-8 overflow-hidden z-[100] h-20">
         <div className="transform skew-y-2">
           {/* Animated Logo Marquee */}
           <div className="relative">
