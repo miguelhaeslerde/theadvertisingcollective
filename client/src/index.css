@@ -233,6 +233,23 @@
     animation: struggleBounce 1.5s ease-in-out infinite;
   }
 
+  /* Interactive Globe animations */
+  .animate-orbit-fast {
+    animation: orbitFast 3s linear infinite;
+  }
+
+  .animate-orbit-medium {
+    animation: orbitMedium 4s linear infinite;
+  }
+
+  .animate-orbit-slow {
+    animation: orbitSlow 5s linear infinite;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
   /* Keyframe definitions */
   @keyframes fadeInUp {
     from {
@@ -453,6 +470,33 @@
     }
     75% {
       transform: translateY(-3px) rotate(5deg);
+    }
+  }
+
+  @keyframes orbitFast {
+    0% {
+      transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbitMedium {
+    0% {
+      transform: rotate(0deg) translateX(110px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(110px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbitSlow {
+    0% {
+      transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(120px) rotate(-360deg);
     }
   }
 }

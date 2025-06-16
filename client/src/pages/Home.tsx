@@ -4,6 +4,7 @@ import CustomerLogos from '@/components/CustomerLogos';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
+import InteractiveGlobe from '@/components/InteractiveGlobe';
 
 // Top Provider Section Component
 function TopProviderSection() {
@@ -22,25 +23,8 @@ function TopProviderSection() {
             <div className="w-24 h-1 bg-accent-yellow rounded-full animate-expand"></div>
           </div>
           
-          {/* 3D Animated Globe */}
-          <div className="mt-16 flex justify-center">
-            <div className="relative w-32 h-32 animate-globe-rotate">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-green-400 to-blue-600 animate-spin-slow shadow-2xl">
-                {/* Globe continents */}
-                <div className="absolute top-4 left-6 w-6 h-4 bg-green-600 rounded-full opacity-80"></div>
-                <div className="absolute top-8 right-4 w-8 h-6 bg-green-600 rounded-lg opacity-80"></div>
-                <div className="absolute bottom-6 left-8 w-5 h-5 bg-green-600 rounded-full opacity-80"></div>
-                <div className="absolute bottom-4 right-6 w-4 h-3 bg-green-600 rounded-full opacity-80"></div>
-                
-                {/* Globe highlight */}
-                <div className="absolute top-2 left-4 w-8 h-8 bg-white rounded-full opacity-30 blur-sm animate-pulse"></div>
-                
-                {/* Orbiting elements */}
-                <div className="absolute -top-2 left-1/2 w-2 h-2 bg-accent-yellow rounded-full animate-orbit"></div>
-                <div className="absolute top-1/2 -right-2 w-2 h-2 bg-accent-yellow rounded-full animate-orbit-delayed"></div>
-              </div>
-            </div>
-          </div>
+          {/* Interactive 3D Globe */}
+          <InteractiveGlobe />
           
           {/* Floating elements animation */}
           <div className="absolute -top-10 -left-10 w-20 h-20 bg-accent-yellow opacity-10 rounded-full animate-float"></div>
