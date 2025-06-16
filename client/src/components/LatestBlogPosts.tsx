@@ -129,7 +129,7 @@ export default function LatestBlogPosts() {
                 </h3>
                 
                 <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                  {contentfulClient.formatRichText(post.fields.body).substring(0, 150)}...
+                  {contentfulClient.formatRichTextSimple(post.fields.body).substring(0, 150)}...
                 </p>
                 
                 <Link

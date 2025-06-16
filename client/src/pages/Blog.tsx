@@ -100,8 +100,8 @@ export default function Blog() {
                     }
                   }
                   
-                  const excerpt = contentfulClient.formatRichText(post.fields.body).substring(0, 150) + '...';
-                  const readingTime = calculateReadingTime(contentfulClient.formatRichText(post.fields.body));
+                  const excerpt = contentfulClient.formatRichTextSimple(post.fields.body).substring(0, 150) + '...';
+                  const readingTime = calculateReadingTime(contentfulClient.formatRichTextSimple(post.fields.body));
 
                   return (
                     <Card key={post.sys.id} className="bg-main-bg dark:bg-main-dark hover:shadow-lg transition-shadow">
