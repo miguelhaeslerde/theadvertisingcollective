@@ -40,15 +40,18 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm border border-accent-yellow/20">
               <h3 className="font-bowlby text-xl text-gray-900 dark:text-white mb-2">E-MAIL</h3>
-              <p className="text-gray-600 dark:text-gray-300">kontakt@theadvertisingcollective.de</p>
-            </div>
-            <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm border border-accent-yellow/20">
-              <h3 className="font-bowlby text-xl text-gray-900 dark:text-white mb-2">TELEFON</h3>
-              <p className="text-gray-600 dark:text-gray-300">+49 89 123 456 78</p>
+              <p className="text-gray-600 dark:text-gray-300">luis@the-advertising-collective.de</p>
             </div>
             <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm border border-accent-yellow/20">
               <h3 className="font-bowlby text-xl text-gray-900 dark:text-white mb-2">ADRESSE</h3>
-              <p className="text-gray-600 dark:text-gray-300">München, Deutschland</p>
+              <p className="text-gray-600 dark:text-gray-300">
+                Petersburgerstraße 31<br />
+                10249 Berlin
+              </p>
+            </div>
+            <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-6 backdrop-blur-sm border border-accent-yellow/20">
+              <h3 className="font-bowlby text-xl text-gray-900 dark:text-white mb-2">UNTERNEHMEN</h3>
+              <p className="text-gray-600 dark:text-gray-300">ADSTRONOMY GmbH</p>
             </div>
           </div>
         </div>

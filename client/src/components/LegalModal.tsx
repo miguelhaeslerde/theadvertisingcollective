@@ -13,31 +13,30 @@ const legalContent: Record<string, LegalContent> = {
     title: 'IMPRESSUM',
     content: `
       <h3>Angaben gemäß § 5 TMG</h3>
-      <p><strong>The Advertising Collective GmbH</strong><br>
-      Maximilianstraße 12<br>
-      80539 München<br>
+      <p><strong>ADSTRONOMY GmbH</strong><br>
+      Petersburgerstraße 31<br>
+      10249 Berlin<br>
       Deutschland</p>
       
       <h3>Kontakt</h3>
-      <p>Telefon: +49 89 123 456 78<br>
-      E-Mail: kontakt@tac-consulting.de</p>
+      <p>E-Mail: luis@the-advertising-collective.de</p>
       
       <h3>Registereintrag</h3>
       <p>Eintragung im Handelsregister<br>
-      Registergericht: Amtsgericht München<br>
-      Registernummer: HRB 123456</p>
+      Registergericht: Amtsgericht Charlottenburg<br>
+      Registernummer: HRB 248064</p>
       
       <h3>Umsatzsteuer-ID</h3>
       <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
-      DE123456789</p>
+      DE357753177</p>
       
       <h3>Geschäftsführung</h3>
-      <p>Max Mustermann, Maria Musterfrau</p>
+      <p>Vertretungsberechtigte Geschäftsführer: Luis Fretz</p>
       
       <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
-      <p>Max Mustermann<br>
-      Maximilianstraße 12<br>
-      80539 München</p>
+      <p>Luis Fretz<br>
+      Petersburgerstraße 31<br>
+      10249 Berlin</p>
     `,
   },
   datenschutz: {

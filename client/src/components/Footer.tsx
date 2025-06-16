@@ -82,12 +82,12 @@ export default function Footer() {
             <h4 className="font-bowlby text-lg mb-6 text-gray-900 dark:text-white">KONTAKT</h4>
             <div className="space-y-4 text-gray-600 dark:text-gray-300 text-sm">
               <div className="leading-relaxed">
-                Maximilianstraße 12<br />
-                80539 München<br />
+                ADSTRONOMY GmbH<br />
+                Petersburgerstraße 31<br />
+                10249 Berlin<br />
                 Deutschland
               </div>
-              <div>+49 89 123 456 78</div>
-              <div>kontakt@tac-consulting.de</div>
+              <div>luis@the-advertising-collective.de</div>
             </div>
           </div>
         </div>
