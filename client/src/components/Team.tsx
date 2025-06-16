@@ -36,11 +36,11 @@ export default function Team() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="text-center mb-20">
-          <h2 className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+        <div className="text-center mb-12 sm:mb-20 px-4 sm:px-0">
+          <h2 className="font-bowlby text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 leading-tight">
             UNSER TEAM
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Die Köpfe hinter The Advertising Collective - 
             Expertise, Leidenschaft und Vision für Ihren Erfolg.
           </p>
@@ -49,48 +49,48 @@ export default function Team() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto">
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 border border-accent-yellow/30 group"
+              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 border border-accent-yellow/30 group mx-4 sm:mx-0"
             >
-              <CardContent className="p-8 text-center">
-                <div className="relative mb-6">
-                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-accent-yellow/50 group-hover:border-accent-yellow transition-all duration-300">
+              <CardContent className="p-6 sm:p-8 text-center">
+                <div className="relative mb-4 sm:mb-6">
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden border-4 border-accent-yellow/50 group-hover:border-accent-yellow transition-all duration-300">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  <div className="absolute -top-2 -right-8 w-6 h-6 bg-accent-yellow rounded-full animate-ping"></div>
+                  <div className="absolute -top-2 -right-6 sm:-right-8 w-4 h-4 sm:w-6 sm:h-6 bg-accent-yellow rounded-full animate-ping"></div>
                 </div>
                 
-                <h3 className="font-bowlby text-2xl text-white mb-2 group-hover:text-accent-yellow transition-colors">
+                <h3 className="font-bowlby text-xl sm:text-2xl text-white mb-2 group-hover:text-accent-yellow transition-colors">
                   {member.name}
                 </h3>
                 
-                <div className="text-accent-yellow font-bold text-lg mb-4">
+                <div className="text-accent-yellow font-bold text-base sm:text-lg mb-3 sm:mb-4">
                   {member.role}
                 </div>
                 
-                <p className="text-gray-300 leading-relaxed mb-6">
+                <p className="text-gray-300 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                   {member.description}
                 </p>
                 
-                <div className="flex justify-center space-x-4">
+                <div className="flex justify-center space-x-3 sm:space-x-4">
                   <a
                     href={member.linkedin}
                     className="text-gray-400 hover:text-accent-yellow transition-colors p-2 rounded-full hover:bg-accent-yellow/10"
                   >
-                    <Linkedin className="h-5 w-5" />
+                    <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
                   </a>
                   <a
                     href={`mailto:${member.email}`}
                     className="text-gray-400 hover:text-accent-yellow transition-colors p-2 rounded-full hover:bg-accent-yellow/10"
                   >
-                    <Mail className="h-5 w-5" />
+                    <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
                   </a>
                 </div>
               </CardContent>

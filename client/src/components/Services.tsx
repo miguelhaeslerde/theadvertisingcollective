@@ -62,11 +62,11 @@ export default function Services() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="text-center mb-20">
-          <h2 className="font-bowlby text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white mb-6 leading-tight">
+        <div className="text-center mb-12 sm:mb-20 px-4 sm:px-0">
+          <h2 className="font-bowlby text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
             UNSERE LEISTUNGEN
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Wir bieten maßgeschneiderte Beratungslösungen für Unternehmen jeder Größe - 
             von Start-ups bis hin zu etablierten Konzernen.
           </p>
@@ -83,38 +83,38 @@ export default function Services() {
                 key={index}
                 className="bg-white dark:bg-gray-900 hover:shadow-2xl hover:shadow-accent-yellow/10 transition-all duration-300 border-l-4 border-accent-yellow group"
               >
-                <CardContent className="p-8 md:p-12">
-                  <div className="flex flex-col md:flex-row gap-8">
+                <CardContent className="p-6 sm:p-8 md:p-12">
+                  <div className="flex flex-col md:flex-row gap-6 sm:gap-8">
                     {/* Icon Section */}
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 flex justify-center md:justify-start">
                       <div className="relative">
-                        <div className="text-accent-yellow text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                          <IconComponent className="h-16 w-16" />
+                        <div className="text-accent-yellow text-4xl sm:text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                          <IconComponent className="h-12 w-12 sm:h-16 sm:w-16" />
                         </div>
-                        <div className="absolute -top-2 -right-2 w-12 h-12 bg-accent-yellow/10 rounded-full group-hover:scale-150 transition-all duration-300"></div>
+                        <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-12 sm:h-12 bg-accent-yellow/10 rounded-full group-hover:scale-150 transition-all duration-300"></div>
                       </div>
                     </div>
                     
                     {/* Content Section */}
-                    <div className="flex-1">
-                      <h3 className="font-bowlby text-2xl md:text-3xl text-gray-900 dark:text-white mb-4 group-hover:text-accent-yellow transition-colors">
+                    <div className="flex-1 text-center md:text-left">
+                      <h3 className="font-bowlby text-xl sm:text-2xl md:text-3xl text-gray-900 dark:text-white mb-3 sm:mb-4 group-hover:text-accent-yellow transition-colors">
                         {service.title}
                       </h3>
                       
-                      <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                      <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                         {service.description}
                       </p>
                       
-                      <p className="text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
+                      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 mb-6 sm:mb-8 leading-relaxed">
                         {service.details}
                       </p>
                       
                       {/* Benefits List */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
                         {service.benefits.map((benefit, benefitIndex) => (
-                          <div key={benefitIndex} className="flex items-center gap-3">
+                          <div key={benefitIndex} className="flex items-center gap-2 sm:gap-3 justify-center md:justify-start">
                             <div className="w-2 h-2 bg-accent-yellow rounded-full flex-shrink-0"></div>
-                            <span className="text-gray-600 dark:text-gray-300 text-sm">
+                            <span className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
                               {benefit}
                             </span>
                           </div>
