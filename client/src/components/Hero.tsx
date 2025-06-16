@@ -35,10 +35,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex justify-center">
-            <Button className="bg-accent-yellow hover:bg-yellow-300 text-gray-900 py-8 px-16 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full max-w-4xl">
+          <div className="flex justify-center my-12">
+            <Button className="bg-accent-yellow hover:bg-yellow-300 text-gray-900 py-12 px-16 rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 w-full max-w-4xl">
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bowlby font-bold mb-2">JETZT KOSTENLOS BEWERBEN</div>
+                <div className="text-2xl md:text-3xl font-bowlby font-bold mb-3">JETZT KOSTENLOS BEWERBEN</div>
                 <div className="text-lg md:text-xl font-normal italic" style={{ fontFamily: 'Instrument Sans, sans-serif' }}>UND EIN PITCH DECK ANFORDERN</div>
               </div>
             </Button>

@@ -3,6 +3,8 @@ import { Link, useLocation } from 'wouter';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
+import logoIcon from '@assets/icon_1750062230380.png';
+import logoIconLight from '@assets/iconlight_1750062405088.png';
 
 export default function Header() {
   const [location] = useLocation();
@@ -27,10 +29,11 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center">
-            <div className="font-bowlby text-xl text-gray-900 dark:text-white">TAC</div>
-            <div className="ml-2 text-sm text-gray-600 dark:text-gray-300 font-medium">
-              The Advertising Collective
-            </div>
+            <img 
+              src={theme === 'dark' ? logoIcon : logoIconLight} 
+              alt="The Advertising Collective" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
