@@ -109,31 +109,7 @@
     --tw-ring-color: var(--accent-yellow);
   }
 
-  .animate-scroll {
-    animation: scroll 30s linear infinite;
-  }
 
-  .animate-scroll-tac {
-    animation: scrollTac 25s linear infinite;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-
-  @keyframes scrollTac {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
   
   .shadow-3xl {
     box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);

@@ -7,7 +7,7 @@ import About from '@/components/About';
 import LatestBlogPosts from '@/components/LatestBlogPosts';
 import Contact from '@/components/Contact';
 import InteractiveGlobe from '@/components/InteractiveGlobe';
-import React from 'react';
+import { DraggableCarousel } from '@/components/DraggableCarousel';
 
 // Top Provider Section Component
 function TopProviderSection() {
