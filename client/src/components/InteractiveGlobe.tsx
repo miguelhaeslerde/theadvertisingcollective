@@ -1,176 +1,90 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
+import createGlobe from "cobe";
 
 export default function InteractiveGlobe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
-  const rotationRef = useRef(0);
+  const locationToAngles = (lat: number, long: number) => {
+    return [Math.PI - ((long * Math.PI) / 180 - Math.PI / 2), (lat * Math.PI) / 180];
+  };
+
+  const focusRef = useRef([0, 0]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    let phi = 0;
+    let width = 0;
+    const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth);
+    window.addEventListener("resize", onResize);
+    onResize();
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const width = 300;
-    const height = 300;
-    canvas.width = width;
-    canvas.height = height;
-
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const radius = 120;
-
-    // Generate dots in a sphere pattern
-    const dots: Array<{ x: number; y: number; z: number; visible: boolean; alpha: number }> = [];
-    const dotCount = 1200;
-
-    for (let i = 0; i < dotCount; i++) {
-      const theta = Math.acos(2 * Math.random() - 1);
-      const phi = 2 * Math.PI * Math.random();
-      
-      const x = Math.sin(theta) * Math.cos(phi);
-      const y = Math.sin(theta) * Math.sin(phi);
-      const z = Math.cos(theta);
-
-      dots.push({ x, y, z, visible: true, alpha: 0.6 });
-    }
-
-    // Connection lines data
-    const connections: Array<{ start: number; end: number; progress: number }> = [];
-    for (let i = 0; i < 8; i++) {
-      connections.push({
-        start: Math.floor(Math.random() * dotCount),
-        end: Math.floor(Math.random() * dotCount),
-        progress: Math.random()
-      });
-    }
-
-    let animationId: number;
-
-    const animate = () => {
-      rotationRef.current += 0.01;
-      
-      ctx.fillStyle = 'transparent';
-      ctx.clearRect(0, 0, width, height);
-
-      // Create gradient background for globe
-      const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius + 20);
-      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.1)');
-      gradient.addColorStop(0.7, 'rgba(37, 99, 235, 0.3)');
-      gradient.addColorStop(1, 'rgba(29, 78, 216, 0.5)');
-      
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, radius + 20, 0, 2 * Math.PI);
-      ctx.fill();
-
-      // Draw dots
-      dots.forEach((dot, index) => {
-        const rotatedX = dot.x * Math.cos(rotationRef.current) - dot.z * Math.sin(rotationRef.current);
-        const rotatedZ = dot.x * Math.sin(rotationRef.current) + dot.z * Math.cos(rotationRef.current);
+    const globe = createGlobe(canvasRef.current!, {
+      devicePixelRatio: 2,
+      width: width * 2,
+      height: width * 2,
+      phi: 0,
+      theta: 0.3,
+      dark: 1,
+      diffuse: 3,
+      mapSamples: 16000,
+      mapBrightness: 1.2,
+      baseColor: [1, 1, 1],
+      markerColor: [251/255, 100/255, 21/255],
+      glowColor: [1, 1, 1],
+      markers: [
+        // Major global cities representing TOP 10 market reach
+        { location: [40.7128, -74.006], size: 0.1 }, // New York
+        { location: [51.5074, -0.1278], size: 0.08 }, // London
+        { location: [35.6762, 139.6503], size: 0.08 }, // Tokyo
+        { location: [48.8566, 2.3522], size: 0.07 }, // Paris
+        { location: [52.52, 13.405], size: 0.06 }, // Berlin
+        { location: [37.7749, -122.4194], size: 0.09 }, // San Francisco
+        { location: [1.3521, 103.8198], size: 0.07 }, // Singapore
+        { location: [22.3193, 114.1694], size: 0.07 }, // Hong Kong
+        { location: [25.2048, 55.2708], size: 0.06 }, // Dubai
+        { location: [-33.8688, 151.2093], size: 0.06 }, // Sydney
+        { location: [28.6139, 77.209], size: 0.08 }, // New Delhi
+        { location: [55.7558, 37.6176], size: 0.06 }, // Moscow
+        { location: [39.9042, 116.4074], size: 0.08 }, // Beijing
+        { location: [-23.5505, -46.6333], size: 0.07 }, // São Paulo
+        { location: [19.4326, -99.1332], size: 0.06 }, // Mexico City
+      ],
+      onRender: (state) => {
+        // Auto-rotate
+        phi += 0.005;
+        state.phi = phi + focusRef.current[0];
+        state.theta = focusRef.current[1];
         
-        // Only show dots on the front hemisphere
-        if (rotatedZ > -0.3) {
-          const projectedX = centerX + rotatedX * radius;
-          const projectedY = centerY + dot.y * radius;
-          
-          // Calculate distance from center for depth effect
-          const distance = Math.sqrt((rotatedX) ** 2 + (dot.y) ** 2 + (rotatedZ + 0.3) ** 2);
-          const alpha = Math.max(0.1, Math.min(1, (2 - distance) / 2));
-          
-          // Highlight some dots as active points
-          const isActive = index % 47 === 0; // Every 47th dot is active
-          const dotSize = isActive ? 3 : 1.5;
-          const color = isActive ? '#FFEC41' : '#60A5FA';
-          
-          ctx.fillStyle = `rgba(${isActive ? '255, 236, 65' : '96, 165, 250'}, ${alpha})`;
-          ctx.beginPath();
-          ctx.arc(projectedX, projectedY, dotSize, 0, 2 * Math.PI);
-          ctx.fill();
+        // Update canvas size
+        state.width = width * 2;
+        state.height = width * 2;
+      },
+    });
 
-          // Add glow for active dots
-          if (isActive) {
-            ctx.shadowColor = '#FFEC41';
-            ctx.shadowBlur = 10;
-            ctx.beginPath();
-            ctx.arc(projectedX, projectedY, dotSize + 1, 0, 2 * Math.PI);
-            ctx.fill();
-            ctx.shadowBlur = 0;
-          }
-        }
-      });
-
-      // Draw connection arcs
-      connections.forEach((conn, i) => {
-        const startDot = dots[conn.start];
-        const endDot = dots[conn.end];
-
-        const startRotatedX = startDot.x * Math.cos(rotationRef.current) - startDot.z * Math.sin(rotationRef.current);
-        const startRotatedZ = startDot.x * Math.sin(rotationRef.current) + startDot.z * Math.cos(rotationRef.current);
-        
-        const endRotatedX = endDot.x * Math.cos(rotationRef.current) - endDot.z * Math.sin(rotationRef.current);
-        const endRotatedZ = endDot.x * Math.sin(rotationRef.current) + endDot.z * Math.cos(rotationRef.current);
-
-        if (startRotatedZ > -0.3 && endRotatedZ > -0.3) {
-          const startX = centerX + startRotatedX * radius;
-          const startY = centerY + startDot.y * radius;
-          const endX = centerX + endRotatedX * radius;
-          const endY = centerY + endDot.y * radius;
-
-          // Animate connection progress
-          conn.progress += 0.02;
-          if (conn.progress > 1) conn.progress = 0;
-
-          const currentX = startX + (endX - startX) * conn.progress;
-          const currentY = startY + (endY - startY) * conn.progress;
-
-          // Draw connection line
-          ctx.strokeStyle = `rgba(255, 236, 65, ${0.3 + 0.3 * Math.sin(conn.progress * Math.PI)})`;
-          ctx.lineWidth = 1;
-          ctx.setLineDash([5, 5]);
-          ctx.beginPath();
-          ctx.moveTo(startX, startY);
-          ctx.lineTo(currentX, currentY);
-          ctx.stroke();
-          ctx.setLineDash([]);
-
-          // Draw moving dot
-          ctx.fillStyle = '#FFEC41';
-          ctx.beginPath();
-          ctx.arc(currentX, currentY, 2, 0, 2 * Math.PI);
-          ctx.fill();
-        }
-      });
-
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseRef.current.x = e.clientX - rect.left;
-      mouseRef.current.y = e.clientY - rect.top;
-    };
-
-    canvas.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      canvas.removeEventListener('mousemove', handleMouseMove);
-    };
+    setTimeout(() => canvasRef.current && (canvasRef.current.style.opacity = "1"));
+    return () => globe.destroy();
   }, []);
 
   return (
     <div className="flex justify-center items-center py-8">
-      <div className="relative">
+      <div className="relative w-64 h-64 md:w-80 md:h-80">
         <canvas
           ref={canvasRef}
-          className="rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(29, 78, 216, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%)',
-            filter: 'drop-shadow(0 0 30px rgba(255, 236, 65, 0.3))'
+            width: "100%",
+            height: "100%",
+            cursor: "grab",
+            contain: "layout style size",
+            opacity: 0,
+            transition: "opacity 1s ease",
+          }}
+          onPointerDown={(e) => {
+            if (canvasRef.current) {
+              canvasRef.current.style.cursor = "grabbing";
+            }
+          }}
+          onPointerUp={(e) => {
+            if (canvasRef.current) {
+              canvasRef.current.style.cursor = "grab";
+            }
           }}
         />
         
