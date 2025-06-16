@@ -187,6 +187,52 @@
     animation: progressStruggle 4s infinite;
   }
 
+  /* 3D Globe animations */
+  .animate-globe-rotate {
+    animation: globeRotate 8s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spinSlow 20s linear infinite;
+  }
+
+  .animate-orbit {
+    animation: orbit 4s linear infinite;
+  }
+
+  .animate-orbit-delayed {
+    animation: orbit 4s linear infinite 2s;
+  }
+
+  /* 3D Trophy animations */
+  .animate-trophy-float {
+    animation: trophyFloat 3s ease-in-out infinite;
+  }
+
+  .animate-trophy-tilt {
+    animation: trophyTilt 6s ease-in-out infinite;
+  }
+
+  .animate-trophy-shine {
+    animation: trophyShine 2s ease-in-out infinite;
+  }
+
+  .animate-shine-sweep {
+    animation: shineSweep 3s ease-in-out infinite;
+  }
+
+  .animate-struggle-float {
+    animation: struggleFloat 2s ease-in-out infinite;
+  }
+
+  .animate-struggle-float-delayed {
+    animation: struggleFloat 2s ease-in-out infinite 1s;
+  }
+
+  .animate-struggle-bounce {
+    animation: struggleBounce 1.5s ease-in-out infinite;
+  }
+
   /* Keyframe definitions */
   @keyframes fadeInUp {
     from {
@@ -308,6 +354,105 @@
     }
     100% {
       width: 60%;
+    }
+  }
+
+  /* 3D Globe keyframes */
+  @keyframes globeRotate {
+    from {
+      transform: perspective(400px) rotateY(0deg) rotateX(-10deg);
+    }
+    to {
+      transform: perspective(400px) rotateY(360deg) rotateX(-10deg);
+    }
+  }
+
+  @keyframes spinSlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg) translateX(70px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(70px) rotate(-360deg);
+    }
+  }
+
+  /* 3D Trophy keyframes */
+  @keyframes trophyFloat {
+    0%, 100% {
+      transform: translateY(0px) perspective(400px) rotateY(-5deg);
+    }
+    50% {
+      transform: translateY(-10px) perspective(400px) rotateY(5deg);
+    }
+  }
+
+  @keyframes trophyTilt {
+    0%, 100% {
+      transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: perspective(400px) rotateX(-5deg) rotateY(10deg);
+    }
+    50% {
+      transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+    }
+    75% {
+      transform: perspective(400px) rotateX(5deg) rotateY(-10deg);
+    }
+  }
+
+  @keyframes trophyShine {
+    0%, 100% {
+      filter: brightness(1) saturate(1);
+    }
+    50% {
+      filter: brightness(1.2) saturate(1.3);
+    }
+  }
+
+  @keyframes shineSweep {
+    0% {
+      transform: translateX(-100%) skewX(-20deg);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(200%) skewX(-20deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes struggleFloat {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-8px) scale(1.1);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes struggleBounce {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-5px) rotate(-5deg);
+    }
+    75% {
+      transform: translateY(-3px) rotate(5deg);
     }
   }
 }

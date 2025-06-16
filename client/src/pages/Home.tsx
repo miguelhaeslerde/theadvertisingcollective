@@ -22,6 +22,26 @@ function TopProviderSection() {
             <div className="w-24 h-1 bg-accent-yellow rounded-full animate-expand"></div>
           </div>
           
+          {/* 3D Animated Globe */}
+          <div className="mt-16 flex justify-center">
+            <div className="relative w-32 h-32 animate-globe-rotate">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-green-400 to-blue-600 animate-spin-slow shadow-2xl">
+                {/* Globe continents */}
+                <div className="absolute top-4 left-6 w-6 h-4 bg-green-600 rounded-full opacity-80"></div>
+                <div className="absolute top-8 right-4 w-8 h-6 bg-green-600 rounded-lg opacity-80"></div>
+                <div className="absolute bottom-6 left-8 w-5 h-5 bg-green-600 rounded-full opacity-80"></div>
+                <div className="absolute bottom-4 right-6 w-4 h-3 bg-green-600 rounded-full opacity-80"></div>
+                
+                {/* Globe highlight */}
+                <div className="absolute top-2 left-4 w-8 h-8 bg-white rounded-full opacity-30 blur-sm animate-pulse"></div>
+                
+                {/* Orbiting elements */}
+                <div className="absolute -top-2 left-1/2 w-2 h-2 bg-accent-yellow rounded-full animate-orbit"></div>
+                <div className="absolute top-1/2 -right-2 w-2 h-2 bg-accent-yellow rounded-full animate-orbit-delayed"></div>
+              </div>
+            </div>
+          </div>
+          
           {/* Floating elements animation */}
           <div className="absolute -top-10 -left-10 w-20 h-20 bg-accent-yellow opacity-10 rounded-full animate-float"></div>
           <div className="absolute -bottom-10 -right-10 w-16 h-16 bg-accent-yellow opacity-20 rounded-full animate-float-delayed"></div>
@@ -48,7 +68,39 @@ function TopThreeSection() {
             </span>{' '}
             zu kommen?
           </h2>
-          <div className="mt-12 flex justify-center space-x-4">
+          {/* 3D Animated Trophy/Award */}
+          <div className="mt-16 flex justify-center">
+            <div className="relative animate-trophy-float">
+              {/* Trophy Base */}
+              <div className="relative w-24 h-32 animate-trophy-tilt">
+                {/* Trophy Cup */}
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-20 bg-gradient-to-b from-yellow-400 via-yellow-500 to-yellow-600 rounded-t-full shadow-2xl animate-trophy-shine">
+                  {/* Trophy Handles */}
+                  <div className="absolute top-4 -left-2 w-4 h-8 border-4 border-yellow-500 rounded-full border-r-transparent"></div>
+                  <div className="absolute top-4 -right-2 w-4 h-8 border-4 border-yellow-500 rounded-full border-l-transparent"></div>
+                  
+                  {/* Trophy Shine Effect */}
+                  <div className="absolute top-2 left-2 w-6 h-12 bg-white opacity-30 rounded-full blur-sm animate-shine-sweep"></div>
+                  
+                  {/* Trophy Number "3" */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-yellow-900 font-bowlby text-xl font-bold">3</div>
+                </div>
+                
+                {/* Trophy Stem */}
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-4 h-6 bg-gradient-to-b from-yellow-600 to-yellow-700"></div>
+                
+                {/* Trophy Base */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-8 bg-gradient-to-b from-yellow-700 to-yellow-800 rounded-lg shadow-lg"></div>
+                
+                {/* Floating "Just Out of Reach" Elements */}
+                <div className="absolute -top-4 -left-4 w-3 h-3 bg-red-400 rounded-full animate-struggle-float opacity-60"></div>
+                <div className="absolute -top-6 right-2 w-2 h-2 bg-red-500 rounded-full animate-struggle-float-delayed opacity-40"></div>
+                <div className="absolute top-2 -right-6 w-4 h-4 bg-orange-400 rounded-full animate-struggle-bounce opacity-50"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 flex justify-center space-x-4">
             <div className="w-8 h-8 bg-accent-yellow rounded-full opacity-30 animate-bounce-sequence-1"></div>
             <div className="w-8 h-8 bg-accent-yellow rounded-full opacity-60 animate-bounce-sequence-2"></div>
             <div className="w-8 h-8 bg-accent-yellow rounded-full animate-bounce-sequence-3"></div>
