@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
 import LegalModal from './LegalModal';
+import CookieBanner from './CookieBanner';
 
 interface LayoutProps {
   children: ReactNode;
@@ -33,6 +34,7 @@ export default function Layout({
         <main>{children}</main>
         <Footer />
         <LegalModal />
+        <CookieBanner />
       </div>
     </>
   );
