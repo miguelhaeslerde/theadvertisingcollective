@@ -9,7 +9,7 @@ import InteractiveGlobe from '@/components/InteractiveGlobe';
 // Top Provider Section Component
 function TopProviderSection() {
   return (
-    <section className="pt-20 py-20 bg-brightest dark:bg-gray-900 overflow-hidden relative z-10" style={{marginTop: '-1rem'}}>
+    <section className="pt-20 py-20 bg-brightest dark:bg-gray-900 overflow-hidden relative z-10" style={{marginTop: '-2rem'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative">
           {/* Text Content */}
@@ -107,6 +107,28 @@ export default function Home() {
       <Hero />
       <div className="relative">
         <CustomerLogos />
+        
+        {/* Diagonal Divider with Customer Logos - Between UNSERE KUNDEN and TOP 10 */}
+        <div className="absolute -bottom-4 -left-12 -right-12 bg-accent-yellow transform -skew-y-1 py-4 overflow-hidden z-[150] h-16">
+          <div className="relative">
+            {/* Scrolling Customer Logos */}
+            <div className="flex animate-scroll">
+              {/* First set of customer logos */}
+              {Array.from({ length: 20 }).map((_, index) => {
+                const logos = ['SAP', 'BMW', 'Siemens', 'Mercedes', 'VW', 'Bosch', 'Adidas', 'Bayer'];
+                const logo = logos[index % logos.length];
+                return (
+                  <div key={`customer-logo-${index}`} className="flex-shrink-0 mx-6 flex items-center justify-center">
+                    <div className="h-8 w-20 bg-white rounded-md flex items-center justify-center shadow-sm">
+                      <span className="text-gray-800 text-xs font-bold">{logo}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        
         <TopProviderSection />
         
         {/* Diagonal Divider - Overlapping both sections */}
