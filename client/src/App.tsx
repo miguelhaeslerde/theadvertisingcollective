@@ -5,6 +5,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import MaintenanceOverlay from "@/components/MaintenanceOverlay";
+import LegalModal from "@/components/LegalModal";
 import Home from "@/pages/Home";
 import AgencyMaxxing from "@/pages/AgencyMaxxing";
 import GrowthStrategy from "@/pages/GrowthStrategy";
@@ -32,6 +34,8 @@ function App() {
         <ThemeProvider>
           <TooltipProvider>
             <Toaster />
+            <MaintenanceOverlay />
+            <LegalModal />
             <Router />
           </TooltipProvider>
         </ThemeProvider>
