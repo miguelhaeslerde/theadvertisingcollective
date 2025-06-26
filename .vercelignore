@@ -1,0 +1,6 @@
+server/
+shared/
+*.ts
+!client/
+node_modules/
+.git/

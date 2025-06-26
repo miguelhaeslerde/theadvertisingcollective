@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(60, 2%, 95%);
+  --foreground: hsl(210, 15%, 15%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(52, 96%, 63%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Custom TAC colors */
+  --main-bg: hsl(60, 2%, 95%);
+  --brightest: hsl(0, 0%, 100%);
+  --main-dark: hsl(0, 0%, 12%);
+  --accent-yellow: hsl(52, 96%, 63%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 12%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 17%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(0, 0%, 12%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 12%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 17%);
+  --input: hsl(0, 0%, 17%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(0, 0%, 17%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(52, 96%, 63%);
+  --accent-foreground: hsl(0, 0%, 12%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  
+  /* Custom TAC dark colors */
+  --main-bg: hsl(0, 0%, 12%);
+  --brightest: hsl(0, 0%, 17%);
+  --main-dark: hsl(0, 0%, 12%);
+  --accent-yellow: hsl(52, 96%, 63%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Instrument Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-bowlby {
+    font-family: 'Bowlby One SC', cursive;
+  }
+}
+
+@layer utilities {
+  .bg-main-bg {
+    background-color: var(--main-bg);
+  }
+  
+  .bg-brightest {
+    background-color: var(--brightest);
+  }
+  
+  .bg-main-dark {
+    background-color: var(--main-dark);
+  }
+  
+  .bg-accent-yellow {
+    background-color: var(--accent-yellow);
+  }
+  
+  .text-accent-yellow {
+    color: var(--accent-yellow);
+  }
+  
+  .border-accent-yellow {
+    border-color: var(--accent-yellow);
+  }
+  
+  .hover\:bg-accent-yellow:hover {
+    background-color: var(--accent-yellow);
+  }
+  
+  .focus\:ring-accent-yellow:focus {
+    --tw-ring-color: var(--accent-yellow);
+  }
+
+
+  
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Custom animations for customer targeting sections */
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+
+  .animate-expand {
+    animation: expand 1.5s ease-out;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .animate-bounce-slow {
+    animation: bounceSlow 3s infinite;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out 3s;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 1s ease-out 0.5s both;
+  }
+
+  .animate-bounce-sequence-1 {
+    animation: bounceSequence 1.5s infinite 0s;
+  }
+
+  .animate-bounce-sequence-2 {
+    animation: bounceSequence 1.5s infinite 0.5s;
+  }
+
+  .animate-bounce-sequence-3 {
+    animation: bounceSequence 1.5s infinite 1s;
+  }
+
+  .animate-stress-pulse {
+    animation: stressPulse 2s infinite;
+  }
+
+  .animate-stress-pulse-delayed {
+    animation: stressPulse 2s infinite 1s;
+  }
+
+  .animate-progress-struggle {
+    animation: progressStruggle 4s infinite;
+  }
+
+  /* 3D Globe animations */
+  .animate-globe-rotate {
+    animation: globeRotate 8s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spinSlow 20s linear infinite;
+  }
+
+  .animate-orbit {
+    animation: orbit 4s linear infinite;
+  }
+
+  .animate-orbit-delayed {
+    animation: orbit 4s linear infinite 2s;
+  }
+
+  /* 3D Trophy animations */
+  .animate-trophy-float {
+    animation: trophyFloat 3s ease-in-out infinite;
+  }
+
+  .animate-trophy-tilt {
+    animation: trophyTilt 6s ease-in-out infinite;
+  }
+
+  .animate-trophy-shine {
+    animation: trophyShine 2s ease-in-out infinite;
+  }
+
+  .animate-shine-sweep {
+    animation: shineSweep 3s ease-in-out infinite;
+  }
+
+  .animate-struggle-float {
+    animation: struggleFloat 2s ease-in-out infinite;
+  }
+
+  .animate-struggle-float-delayed {
+    animation: struggleFloat 2s ease-in-out infinite 1s;
+  }
+
+  .animate-struggle-bounce {
+    animation: struggleBounce 1.5s ease-in-out infinite;
+  }
+
+  /* Interactive Globe animations */
+  .animate-orbit-fast {
+    animation: orbitFast 3s linear infinite;
+  }
+
+  .animate-orbit-medium {
+    animation: orbitMedium 4s linear infinite;
+  }
+
+  .animate-orbit-slow {
+    animation: orbitSlow 5s linear infinite;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  /* TOP 3 Section Animations */
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+
+  .animate-grid-move {
+    animation: gridMove 20s linear infinite;
+  }
+
+  .animate-expand-glow {
+    animation: expandGlow 2s ease-out forwards;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  /* Keyframe definitions */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(255, 236, 65, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 236, 65, 0.8), 0 0 30px rgba(255, 236, 65, 0.6);
+    }
+  }
+
+  @keyframes expand {
+    from {
+      width: 0;
+    }
+    to {
+      width: 6rem;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes bounceSlow {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-2px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(2px);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px rgba(255, 236, 65, 0.5);
+    }
+    to {
+      text-shadow: 0 0 20px rgba(255, 236, 65, 0.8), 0 0 30px rgba(255, 236, 65, 0.6);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      width: 0;
+      left: 50%;
+    }
+    to {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  @keyframes bounceSequence {
+    0%, 60%, 100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes stressPulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+  }
+
+  @keyframes progressStruggle {
+    0% {
+      width: 0%;
+    }
+    25% {
+      width: 30%;
+    }
+    50% {
+      width: 20%;
+    }
+    75% {
+      width: 50%;
+    }
+    90% {
+      width: 45%;
+    }
+    100% {
+      width: 60%;
+    }
+  }
+
+  /* 3D Globe keyframes */
+  @keyframes globeRotate {
+    from {
+      transform: perspective(400px) rotateY(0deg) rotateX(-10deg);
+    }
+    to {
+      transform: perspective(400px) rotateY(360deg) rotateX(-10deg);
+    }
+  }
+
+  @keyframes spinSlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg) translateX(70px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(70px) rotate(-360deg);
+    }
+  }
+
+  /* 3D Trophy keyframes */
+  @keyframes trophyFloat {
+    0%, 100% {
+      transform: translateY(0px) perspective(400px) rotateY(-5deg);
+    }
+    50% {
+      transform: translateY(-10px) perspective(400px) rotateY(5deg);
+    }
+  }
+
+  @keyframes trophyTilt {
+    0%, 100% {
+      transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: perspective(400px) rotateX(-5deg) rotateY(10deg);
+    }
+    50% {
+      transform: perspective(400px) rotateX(0deg) rotateY(0deg);
+    }
+    75% {
+      transform: perspective(400px) rotateX(5deg) rotateY(-10deg);
+    }
+  }
+
+  @keyframes trophyShine {
+    0%, 100% {
+      filter: brightness(1) saturate(1);
+    }
+    50% {
+      filter: brightness(1.2) saturate(1.3);
+    }
+  }
+
+  @keyframes shineSweep {
+    0% {
+      transform: translateX(-100%) skewX(-20deg);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(200%) skewX(-20deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes struggleFloat {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-8px) scale(1.1);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes struggleBounce {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-5px) rotate(-5deg);
+    }
+    75% {
+      transform: translateY(-3px) rotate(5deg);
+    }
+  }
+
+  @keyframes orbitFast {
+    0% {
+      transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbitMedium {
+    0% {
+      transform: rotate(0deg) translateX(110px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(110px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbitSlow {
+    0% {
+      transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    }
+  }
+
+  /* TOP 3 Section Keyframes */
+  @keyframes pulseSlow {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes gridMove {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(100px, 100px);
+    }
+  }
+
+  @keyframes expandGlow {
+    0% {
+      width: 0;
+      box-shadow: 0 0 0 rgba(255, 236, 65, 0);
+    }
+    100% {
+      width: 8rem;
+      box-shadow: 0 0 20px rgba(255, 236, 65, 0.8);
+    }
+  }
+}
