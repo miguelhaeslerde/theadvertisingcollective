@@ -7,7 +7,7 @@ export default function MaintenanceOverlay() {
   const handleLegalClick = (type: string) => {
     // Dispatch custom event to open legal modal
     window.dispatchEvent(new CustomEvent('openLegalModal', { 
-      detail: { type } 
+      detail: type 
     }));
   };
 
